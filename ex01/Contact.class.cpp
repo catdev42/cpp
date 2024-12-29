@@ -6,14 +6,14 @@
 /*   By: myakoven <myakoven@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 19:55:39 by myakoven          #+#    #+#             */
-/*   Updated: 2024/12/29 01:43:14 by myakoven         ###   ########.fr       */
+/*   Updated: 2024/12/29 02:43:27 by myakoven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.class.hpp"
 #include <iostream>
-#include <string>
 #include <sstream>
+#include <string>
 
 Contact::Contact(void) : _index(0)
 {
@@ -37,13 +37,6 @@ Contact::~Contact()
 	return ;
 }
 
-std::string Contact::getIndexStr(void)
-{
-	std::stringstream ss;
-	ss << this->_index;
-	return (ss.str());
-}
-
 void Contact::getUserInput(const std::string &prompt, std::string &field)
 {
 	std::cout << prompt;
@@ -60,4 +53,23 @@ void Contact::printFields() const
 	std::cout << "Phone Number: " + this->phoneNumber << std::endl;
 	std::cout << "Darkest Secret: " + this->darkestSecret << std::endl;
 	return ;
+}
+
+std::string Contact::getIndexStr(void)
+{
+	std::stringstream ss;
+	ss << this->_index;
+	return (ss.str());
+}
+
+std::string Contact::getFirstName(void)
+{
+	return (this->firstName);
+}
+std::string Contact::getLastName(void){
+	return (this->lastName);
+}
+
+std::string Contact::getNickname(void){
+	return (this->nickname);
 }

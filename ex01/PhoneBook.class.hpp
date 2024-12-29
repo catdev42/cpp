@@ -6,7 +6,7 @@
 /*   By: myakoven <myakoven@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 17:51:13 by myakoven          #+#    #+#             */
-/*   Updated: 2024/12/29 01:58:21 by myakoven         ###   ########.fr       */
+/*   Updated: 2024/12/29 02:16:29 by myakoven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <string>
 
 # define MAX_BOOK_LEN 8
+# define INDEX_ERR "Please enter a number from 0 to "
 
 class PhoneBook
 {
@@ -34,13 +35,12 @@ class PhoneBook
 	size_t getOldest(void);
 
   private:
-  
 	void updateStats();
 	size_t getIndexFromUser();
 	std::string formatEntry(std::string entry);
 	size_t _len;
 	size_t _oldestIndex;
-	
+
 	void _updateOldest();
 	void _updateLen();
 };

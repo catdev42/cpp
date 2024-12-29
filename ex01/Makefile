@@ -1,4 +1,4 @@
-SRC = megaphone.cpp
+SRC = Contact.class.cpp PhoneBook.class.cpp PhoneBook.classPriv.cpp phoneBook.cpp
 OBJ = $(addprefix obj/, $(SRC:.cpp=.o))
 CC = g++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
@@ -9,7 +9,7 @@ all: $(NAME)
 
 obj/%.o: %.cpp
 	mkdir -p obj
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CPPFLAGS) -c $< -o $@
 
 $(NAME): $(OBJ)
 	$(CC) $(CPPFLAGS) $(OBJ) -o $(NAME)

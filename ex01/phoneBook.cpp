@@ -6,7 +6,7 @@
 /*   By: myakoven <myakoven@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 23:07:37 by myakoven          #+#    #+#             */
-/*   Updated: 2024/12/29 01:55:58 by myakoven         ###   ########.fr       */
+/*   Updated: 2024/12/29 02:33:20 by myakoven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,9 @@ int	main(void)
 	toExit = false;
 	while (!toExit)
 	{
+        std::cout << "Select an action ADD, SEARCH or EXIT: ";
 		std::getline(std::cin, input);
+        std::cout << std::endl;
 		if (input == "EXIT")
 			toExit = true;
 		else if (input == "ADD")
