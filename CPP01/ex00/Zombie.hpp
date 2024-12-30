@@ -1,24 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phoneBook.hpp                                      :+:      :+:    :+:   */
+/*   zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: myakoven <myakoven@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/28 23:23:40 by myakoven          #+#    #+#             */
-/*   Updated: 2024/12/30 20:25:56 by myakoven         ###   ########.fr       */
+/*   Created: 2024/12/30 17:04:47 by myakoven          #+#    #+#             */
+/*   Updated: 2024/12/30 21:09:29 by myakoven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
+#ifndef ZOMBIE_HPP
+# define ZOMBIE_HPP
 
-#include "Contact.class.hpp"
-#include "PhoneBook.class.hpp"
-#include <iomanip>
-#include <iostream>
-#include <string>
+# include <iostream>
+# include <string>
 
-#define ERROR_MESSAGE "Commands (in uppercase): EXIT, ADD or SEARCH"
+class Zombie
+{
+  private:
+	std::string _name;
+
+  public:
+	Zombie();
+	Zombie(std::string name_given);
+	~Zombie();
+
+	void announce(void);
+};
+
+Zombie *newZombie(std::string name);
+void randomChump(std::string name);
 
 #endif

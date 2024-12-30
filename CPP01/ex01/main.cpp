@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phoneBook.hpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: myakoven <myakoven@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/28 23:23:40 by myakoven          #+#    #+#             */
-/*   Updated: 2024/12/30 20:25:56 by myakoven         ###   ########.fr       */
+/*   Created: 2024/12/30 20:26:44 by myakoven          #+#    #+#             */
+/*   Updated: 2024/12/30 21:29:11 by myakoven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
+#include "Zombie.hpp"
 
-#include "Contact.class.hpp"
-#include "PhoneBook.class.hpp"
-#include <iomanip>
-#include <iostream>
-#include <string>
+int main(void)
+{
 
-#define ERROR_MESSAGE "Commands (in uppercase): EXIT, ADD or SEARCH"
-
-#endif
+    Zombie *hordePtr;
+    int i;
+    int N;
+    
+    N = 20;
+    hordePtr = zombieHorde(N, "Adam");
+    i = 0;
+    while (i < N)
+    {
+        std::cout << i << ") ";
+        hordePtr[i].announce();
+        i++;
+    }
+    delete [] hordePtr;
+}

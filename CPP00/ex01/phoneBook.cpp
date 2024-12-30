@@ -6,16 +6,11 @@
 /*   By: myakoven <myakoven@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 23:07:37 by myakoven          #+#    #+#             */
-/*   Updated: 2024/12/29 22:34:28 by myakoven         ###   ########.fr       */
+/*   Updated: 2024/12/30 20:25:59 by myakoven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.class.hpp"
-#include "PhoneBook.class.hpp"
 #include "phoneBook.hpp"
-#include <iomanip>
-#include <iostream>
-#include <string>
 
 int	main(void)
 {
