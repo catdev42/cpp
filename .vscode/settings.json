@@ -66,6 +66,7 @@
         "iterator": "cpp",
         "utility": "cpp",
         "*.tcc": "cpp",
-        "iomanip": "cpp"
+        "iomanip": "cpp",
+        "text_encoding": "cpp"
     }
 }
