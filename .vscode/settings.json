@@ -67,6 +67,7 @@
         "utility": "cpp",
         "*.tcc": "cpp",
         "iomanip": "cpp",
-        "text_encoding": "cpp"
+        "text_encoding": "cpp",
+        "filesystem": "cpp"
     }
 }
