@@ -11,7 +11,7 @@ CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
 NAME = fixed
 
 #****************#
-#*    RECIPE   *#
+#*    RECIPE    *#
 #****************#
 
 all: $(NAME)

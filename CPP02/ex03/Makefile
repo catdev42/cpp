@@ -3,12 +3,12 @@
 #* INGREDIENTS *#
 #***************#
 
-SRC = main.cpp Fixed.cpp
+SRC = main.cpp Fixed.cpp Point.cpp bsp.cpp
 OBJ = $(addprefix obj/, $(SRC:.cpp=.o))
 CC = g++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
 
-NAME = fixed
+NAME = BSP
 
 #****************#
 #*    RECIPE    *#

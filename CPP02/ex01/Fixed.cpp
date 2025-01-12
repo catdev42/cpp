@@ -1,38 +1,21 @@
 #include "Fixed.hpp"
 #include <iostream>
 
-static float ft_pow(float base, int exp)
-{
-	float result;
-
-	if (!exp)
-		return (1);
-	if (exp < 0)
-	{
-		base = 1 / base;
-		exp *= -1;
-	}
-	result = base;
-	while (--exp)
-		result *= base;
-	return (result);
-}
-
 Fixed::Fixed() : _value(0)
 {
 	std::cout << "Default Constructor was called" << std::endl;
 	return;
 }
 
-Fixed::Fixed(const int num) : _value(num * ft_pow(2, _availBits))
+Fixed::Fixed(const int num) : _value(roundf(num * (1 << _availBits)))
 {
-	std::cout << "Int Constructor was called" << std::endl;
+	std::cout << "Int Constructor was called" << _value << std::endl;
 	return;
 }
 
-Fixed::Fixed(const float fnum) : _value(fnum * ft_pow(2, _availBits))
+Fixed::Fixed(const float fnum) : _value(roundf(fnum * (1 << _availBits)))
 {
-	std::cout << "Float Constructor was called" << std::endl;
+	std::cout << "Float Constructor was called" << _value << std::endl;
 	return;
 }
 
@@ -72,11 +55,11 @@ int Fixed::getRawBits(void) const
 
 float Fixed::toFloat(void) const
 {
-	return (this->_value * ft_pow(2, -this->_availBits));
+	return (this->_value / (float)(1 << _availBits));
 }
 int Fixed::toInt(void) const
 {
-	return (this->_value * ft_pow(2, -this->_availBits));
+	return (roundf(this->_value / (1 << _availBits)));
 }
 
 std::ostream &operator<<(std::ostream &o, Fixed const &infile)
@@ -84,3 +67,22 @@ std::ostream &operator<<(std::ostream &o, Fixed const &infile)
 	o << infile.toFloat();
 	return (o);
 }
+
+/*
+static float ft_pow(float base, int exp)
+{
+	float result;
+
+	if (!exp)
+		return (1);
+	if (exp < 0)
+	{
+		base = 1 / base;
+		exp *= -1;
+	}
+	result = base;
+	while (--exp)
+		result *= base;
+	return (result);
+}
+*/
