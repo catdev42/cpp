@@ -132,5 +132,3 @@ int main() {
     return 0;
 }
 ```
-
-This should give you a good overview of the `std::string` class in C++. Feel free to ask if you have any specific questions!
