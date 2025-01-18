@@ -1,4 +1,4 @@
-Sure! The `std::string` class in C++ is part of the Standard Library and provides a way to work with sequences of characters. Here are the key points you need to know:
+The `std::string` class in C++ is part of the Standard Library and provides a way to work with sequences of characters. Here are the key points you need to know:
 
 ### 1. **Including the String Library**
 To use `std::string`, you need to include the string header:
