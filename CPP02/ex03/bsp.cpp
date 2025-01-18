@@ -6,7 +6,7 @@
 /*   By: myakoven <myakoven@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 13:45:28 by myakoven          #+#    #+#             */
-/*   Updated: 2025/01/12 15:32:22 by myakoven         ###   ########.fr       */
+/*   Updated: 2025/01/12 15:46:05 by myakoven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,13 @@ bool bsp(Point const a, Point const b, Point const c, Point const point)
 	Fixed whole;
 	Fixed tA, tB, tC;
 	Fixed sumOfTriangles;
-	
 
 	whole = area(a, b, c);
 	tA = area(a, b, point);
 	tB = area(b, c, point);
 	tC = area(c, a, point);
-	
 	sumOfTriangles = tA + tB + tC;
-	
+	if (tA == 0 || tB == 0 || tC == 0)
+		return (false);
 	return (sumOfTriangles <= whole);
 }

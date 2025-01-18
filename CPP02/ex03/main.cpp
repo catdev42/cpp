@@ -6,7 +6,7 @@
 /*   By: myakoven <myakoven@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 12:28:47 by myakoven          #+#    #+#             */
-/*   Updated: 2025/01/12 15:35:43 by myakoven         ###   ########.fr       */
+/*   Updated: 2025/01/13 03:28:24 by myakoven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int main(void)
 	const Point a;
 	const Point b(10, 0);
 	const Point c(0, 10);
-	const Point point(1, 1);
+	const Point point(11, 3);
 
 	std::cout << "The point( x= " << point.getX() << "\t\ty= " << point.getY() << "\t) is inside the triangle\n" <<
 	"\ta( x= " << a.getX() << "\t\ty= " << a.getY() << "\t)\n" <<
@@ -35,10 +35,10 @@ int main(void)
 	}
 	std::cout << "\n---------------------------------------------------------------------\n" << std::endl;
 	{
-	Point a((float)-1.5, (float)-1.5);
-	Point b((float)2.5, (float)2.5);
+	Point a(-1.5f, -1.5f);
+	Point b(2.5f, 2.5f);
 	Point c(-1, -2);
-	Point point((float)8.5, (float)-9);
+	Point point(8.5f, -9.0f);
 
 	std::cout << "The point( x= " << point.getX() << "\ty= " << point.getY() << "\t) is inside the triangle\n" <<
 	"\ta( x= " << a.getX() << "\ty= " << a.getY() << "\t)\n" <<
