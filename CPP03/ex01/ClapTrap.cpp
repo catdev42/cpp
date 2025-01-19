@@ -91,5 +91,4 @@ void ClapTrap::beRepaired(unsigned int amount)
 	return;
 }
 
-	void printBase() const;
 
