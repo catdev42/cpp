@@ -91,3 +91,6 @@ void ClapTrap::beRepaired(unsigned int amount)
 	return;
 }
 // type getFoo(void) const
+std::ostream &operator<<(std::ostream &o, ClapTrap const &infile){
+	
+}

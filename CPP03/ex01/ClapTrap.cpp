@@ -23,10 +23,13 @@ ClapTrap::ClapTrap(ClapTrap const &src)
 ClapTrap &ClapTrap::operator=(ClapTrap const &rhs)
 {
 	std::cout << "Operator= overloader was called" << std::endl;
-	name = rhs.name;
-	energyPoints = rhs.energyPoints;
-	hitPoints = rhs.hitPoints;
-	attackDamage = rhs.attackDamage;
+	if (this != &rhs)
+	{
+		name = rhs.name;
+		energyPoints = rhs.energyPoints;
+		hitPoints = rhs.hitPoints;
+		attackDamage = rhs.attackDamage;
+	}
 	return (*this);
 }
 
@@ -87,3 +90,6 @@ void ClapTrap::beRepaired(unsigned int amount)
 	}
 	return;
 }
+
+	void printBase() const;
+

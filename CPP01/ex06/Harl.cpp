@@ -3,6 +3,13 @@
 #include <iostream>
 #include <string>
 
+static void make_upper(std::string &str)
+{
+	for (std::string::iterator it = str.begin(); it < str.end(); it++)
+		*it = static_cast<char>(std::toupper(static_cast<unsigned char>(*it)));
+	return;
+}
+
 void Harl::debug(void) const
 {
 	std::cout << _debugVar << std::endl;
@@ -22,6 +29,23 @@ void Harl::error(void) const
 {
 	std::cout << _errorVar << std::endl;
 	return;
+}
+
+int Harl::getLevel(std::string level) const
+{
+	int MAX = 4;
+	std::string levels[] = {"DEBUG",
+							"INFO",
+							"WARNING",
+							"ERROR"};
+
+	make_upper(level);
+	for (int i = 0; i < MAX; i++)
+	{
+		if (levels[i] == level)
+			return (i);
+	}
+	return (-1);
 }
 
 /* public: */
@@ -50,41 +74,19 @@ Harl::~Harl()
 	return;
 }
 
-
 void Harl::complain(std::string level) const
 {
-	int MAX = 4;
-
-	std::string levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	int levelIndex;
 	void (Harl::*functions[])(void) const = {
 		&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 
-	std::transform(level.begin(), level.end(), level.begin(), toupper);
-
-	for (int i = 0; i < MAX; i++)
+	make_upper(level);
+	levelIndex = getLevel(level);
+	if (levelIndex != -1)
 	{
-		if (levels[i] == level)
-		{
-			(this->*functions[i])();
-			return;
-		}
+		(this->*functions[levelIndex])();
+		return;
 	}
 	std::cout << "There is no such command:" << " " << level << std::endl;
 	return;
-}
-
-int Harl::getLevel(std::string level) const
-{
-	int MAX = 4;
-	std::string levels[] = {"DEBUG",
-							"INFO",
-							"WARNING",
-							"ERROR"};
-	std::transform(level.begin(), level.end(), level.begin(), toupper);
-	for (int i = 0; i < MAX; i++)
-	{
-		if (levels[i] == level)
-			return (i);
-	}
-	return (-1);
 }

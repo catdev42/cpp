@@ -16,8 +16,8 @@ int main(int argc, char **argv)
     std::string inputFile = argv[1];
     std::string outputFile = inputFile + ".replace";
 
-    std::ifstream infile(inputFile);
-    std::ofstream outfile(outputFile);
+    std::ifstream infile(inputFile.c_str());
+    std::ofstream outfile(outputFile.c_str());
 
     replaceText(infile, outfile, str1, str2);
 }

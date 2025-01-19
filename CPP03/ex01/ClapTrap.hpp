@@ -23,6 +23,6 @@ public:
 	void beRepaired(unsigned int amount);
 };
 
-std::ostream &operator<<(std::ostream &o, ClapTrap const &infile);
+std::ostream &operator<c<(std::ostream &o, ClapTrap const &infile);
 
 #endif

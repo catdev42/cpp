@@ -18,6 +18,10 @@ public:
 	ClapTrap &operator=(ClapTrap const &rhs);
 	~ClapTrap();
 
+	void getEnPoints() const;
+	void getHitPoints() const;
+	void getAttackDamage() const;	
+
 	void attack(const std::string &target);
 	// opponent gets attackdamage, attacker looses hit points
 	// attack uses opponenets take damage function
@@ -26,6 +30,7 @@ public:
 	// cant do attack without hit points or do anythign without energy points
 	void beRepaired(unsigned int amount);
 	// type getFoo(void) const
+
 };
 
 std::ostream &operator<<(std::ostream &o, ClapTrap const &infile);

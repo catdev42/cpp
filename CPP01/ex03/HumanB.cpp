@@ -6,7 +6,7 @@
 /*   By: myakoven <myakoven@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 00:27:38 by myakoven          #+#    #+#             */
-/*   Updated: 2024/12/31 00:54:44 by myakoven         ###   ########.fr       */
+/*   Updated: 2025/01/19 16:36:00 by myakoven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void HumanB::attack(void)
     return;
 }
 
-void HumanB::setWeapon(Weapon& weaponREF)
+void HumanB::setWeapon(Weapon &weaponREF)
 {
     _weapon = &weaponREF;
     return;

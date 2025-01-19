@@ -5,7 +5,7 @@
 
 SRC = HumanA.cpp HumanB.cpp Weapon.cpp main.cpp
 OBJ = $(addprefix obj/, $(SRC:.cpp=.o))
-CC = g++
+CC = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
 
 NAME = warriors

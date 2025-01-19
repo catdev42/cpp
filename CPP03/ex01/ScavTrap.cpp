@@ -2,19 +2,33 @@
 #include "ScavTrap.hpp"
 #include <iostream>
 
-ScavTrap::ScavTrap() : ClapTrap("Nameless"), energyPoints(50), hitPoints(100), attackDamage(20)
+ScavTrap::ScavTrap() : ClapTrap(), guardModeActivated(false)
 {
+	energyPoints = 50;
+	hitPoints = 100;
+	attackDamage = 20;
 	std::cout << "ScavTrap Default Constructor was called" << std::endl;
 	return;
 }
 
-ScavTrap::ScavTrap(std::string _name) : name(_name),  energyPoints(50), hitPoints(100), attackDamage(20)
+// ScavTrap::ScavTrap(std::string _name) : ClapTrap(_name)
+// {
+// 	energyPoints = 50;
+// 	hitPoints = 100;
+// 	attackDamage = 20;
+// 	std::cout << "ScavTrap Named Constructor was called" << name << std::endl;
+// 	return;
+// }
+
+ScavTrap::ScavTrap(std::string _name, int _enerP, int _hitP, int _attDam) : ClapTrap(_name), guardModeActivated(false)
 {
+	energyPoints = _enerP;
+	hitPoints = _hitP;
+	attackDamage = _attDam;
 	std::cout << "ScavTrap Named Constructor was called" << name << std::endl;
-	return;
 }
 
-ScavTrap::ScavTrap(ScavTrap const &src)
+ScavTrap::ScavTrap(ScavTrap const &src) : ClapTrap()
 {
 	std::cout << "ScavTrap Copy Constructor was called" << std::endl;
 	*this = src;
@@ -61,5 +75,9 @@ void ScavTrap::attack(const std::string &target)
 	return;
 }
 
-    void guardGate(){ScavTrap is now in Gate keeper mode.}
-
+void ScavTrap::guardGate()
+{
+	guardModeActivated = true;
+	std::cout << "ScavTrap is now in Gate keeper mode" << std::endl;
+	return;
+}
