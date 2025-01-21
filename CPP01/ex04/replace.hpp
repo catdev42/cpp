@@ -6,14 +6,13 @@
 /*   By: myakoven <myakoven@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 22:05:02 by myakoven          #+#    #+#             */
-/*   Updated: 2024/12/31 22:11:45 by myakoven         ###   ########.fr       */
+/*   Updated: 2025/01/21 12:18:33 by myakoven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef REPLACE_HPP
 #define REPLACE_HPP
 
-#include <iostream>
 #include <string>
 #include <fstream>
 

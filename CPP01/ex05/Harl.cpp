@@ -3,14 +3,6 @@
 #include <iostream>
 #include <cctype>
 
-// private:
-// 	std::string _debugVar;
-// 	std::string _infoVar;
-// 	std::string _warningVar;
-// 	std::string _errorVar;
-
-// public:
-
 static void make_lower(std::string &str)
 {
 	for (std::string::iterator it= str.begin(); it < str.end(); it++)
@@ -27,12 +19,23 @@ static void make_upper(std::string &str)
 
 Harl::Harl()
 {
-	_debugVar = "Writing debug message";
-	_infoVar = "Writing info message";
-	_warningVar = "Writing warning message";
-	_errorVar = "Writing error message";
+	_debugVar = "I love having extra bacon for my "
+				"7XL-double-cheese-triple-pickle-special-ketchup burger.\n"
+				"I really do!";
+
+	_infoVar = "I cannot believe adding extra bacon costs more money.\n"
+			   "You didn't put enough bacon in my burger! "
+			   "If you did, I wouldn't be asking for more!";
+
+	_warningVar = "I think I deserve to have some extra bacon for free.\n"
+				  "I've been coming for years whereas you started working "
+				  "here since last month.";
+
+	_errorVar = "This is unacceptable! "
+				"I want to speak to the manager now.";
 	return;
 }
+
 Harl::~Harl()
 {
 	return;
@@ -78,6 +81,6 @@ void Harl::complain(std::string level) const
 		}
 	}
 	make_upper(level);
-	std::cout << "There is no such command:" << " \'" << level << "'" <<std::endl;
+	std::cout << "[ Probably complaining about insignificant problems ] : " << " \'" << level << "'" <<std::endl;
 	return;
 }

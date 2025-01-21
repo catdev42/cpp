@@ -69,7 +69,7 @@ int Harl::determineLevel(std::string level) const
 		if (levels[i] == level)
 			return (i);
 	}
-	return (-1);
+	return (MAX);
 }
 
 void Harl::complain(std::string level) const
@@ -87,13 +87,6 @@ void Harl::complain(std::string level) const
 	}
 	std::cout << "There is no such command:" << " " << level << std::endl;
 	return;
-}
-
-void Harl::callHarlComplaint(std::string level, Harl &harl)
-{
-	std::cout << "[ " << level << " ]" << std::endl;
-	harl.complain(level);
-	std::cout << std::endl;
 }
 
 void Harl::harlFilter(std::string level, Harl &harl)
@@ -117,4 +110,11 @@ void Harl::harlFilter(std::string level, Harl &harl)
 	default:
 		std::cout << "[ Probably complaining about insignificant problems ] " << std::endl;
 	}
+}
+
+void Harl::callHarlComplaint(std::string level, Harl &harl)
+{
+	std::cout << "[ " << level << " ]" << std::endl;
+	harl.complain(level);
+	std::cout << std::endl;
 }

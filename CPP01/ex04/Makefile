@@ -3,7 +3,7 @@
 #* INGREDIENTS *#
 #***************#
 
-SRC = main.cpp
+SRC = main.cpp replace.cpp
 OBJ = $(addprefix obj/, $(SRC:.cpp=.o))
 CC = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic

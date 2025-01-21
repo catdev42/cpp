@@ -6,7 +6,7 @@
 /*   By: myakoven <myakoven@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/01 19:04:19 by myakoven          #+#    #+#             */
-/*   Updated: 2025/01/21 11:51:44 by myakoven         ###   ########.fr       */
+/*   Updated: 2025/01/21 14:24:44 by myakoven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,3 @@ int main(int argc, char **argv)
 	level = argv[1];
 	harl.harlFilter(level, harl);
 }
-
