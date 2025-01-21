@@ -6,7 +6,7 @@
 /*   By: myakoven <myakoven@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 08:47:00 by myakoven          #+#    #+#             */
-/*   Updated: 2025/01/19 15:18:25 by myakoven         ###   ########.fr       */
+/*   Updated: 2025/01/20 18:25:48 by myakoven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 class ScavTrap : public ClapTrap
 {
 private:
-	bool guardModeActivated;
+	bool guardMode;
 
 public:
 	ScavTrap();
@@ -25,6 +25,8 @@ public:
 	ScavTrap(ScavTrap const &src);
 	ScavTrap &operator=(ScavTrap const &rhs);
 	~ScavTrap();
+
+	bool getGuardMode() const;
 
 	void attack(const std::string &target);
 

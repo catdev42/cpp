@@ -3,12 +3,12 @@
 #* INGREDIENTS *#
 #***************#
 
-SRC = main.cpp ClapTrap.cpp
+SRC = main.cpp ClapTrap.cpp ScavTrap.cpp
 OBJ = $(addprefix obj/, $(SRC:.cpp=.o))
-CC = g++
+CC = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
 
-NAME = claptrap
+NAME = scavtrap
 
 #****************#
 #*    RECIPE    *#

@@ -1,6 +1,7 @@
 #include "ClapTrap.hpp"
 
 #include <iostream>
+#include <iomanip>
 
 ClapTrap::ClapTrap() : name("Nameless"), energyPoints(10), hitPoints(10), attackDamage(0)
 {
@@ -36,6 +37,13 @@ ClapTrap::~ClapTrap()
 	std::cout << "ClapTrap Destructor was called on " << name << std::endl;
 	return;
 }
+
+/* GETTERS */
+
+int ClapTrap::getEnPoints() const { return (energyPoints); }
+int ClapTrap::getHitPoints() const { return (hitPoints); }
+int ClapTrap::getAttackDamage() const { return (attackDamage); }
+std::string ClapTrap::getName() const { return (name); }
 
 /* PUBLIC MEMBER FUNCTIONS */
 
@@ -83,16 +91,19 @@ void ClapTrap::beRepaired(unsigned int amount)
 {
 	if (energyPoints)
 	{
-		std::cout << "ClapTrap " << name << " is repaired by " << amount
-				  << " and now has " << hitPoints << " remaining " << std::endl;
 		this->energyPoints--;
 		this->hitPoints += amount;
+		std::cout << "ClapTrap " << name << " is repaired by " << amount
+				  << " and now has " << hitPoints << " remaining " << std::endl;
 	}
 	return;
 }
-// type getFoo(void) const
 
-// TODO TO DO todo
 std::ostream &operator<<(std::ostream &o, ClapTrap const &infile)
 {
+	std::cout << infile.getName() << "\033[32m]" << " has " << infile.getEnPoints()
+			  << " energy points." << std::endl;
+	std::cout << "Attack Damage: " << infile.getAttackDamage() << std::endl;
+	std::cout << "Hit Points: " << infile.getHitPoints() << std::endl;
+	return (o);
 }
