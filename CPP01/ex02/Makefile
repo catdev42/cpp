@@ -6,7 +6,7 @@
 #    By: myakoven <myakoven@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/30 21:37:06 by myakoven          #+#    #+#              #
-#    Updated: 2024/12/30 21:44:21 by myakoven         ###   ########.fr        #
+#    Updated: 2025/01/19 16:42:22 by myakoven         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@
 
 SRC =main.cpp
 OBJ = $(addprefix obj/, $(SRC:.cpp=.o))
-CC = g++
+CC = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
 
 NAME = refs

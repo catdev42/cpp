@@ -2,19 +2,24 @@
 #include "ScavTrap.hpp"
 #include <iostream>
 
-ScavTrap::ScavTrap() : ClapTrap("Nameless"), energyPoints(50), hitPoints(100), attackDamage(20)
+ScavTrap::ScavTrap() : ClapTrap(), guardMode(false)
 {
+	energyPoints = 50;
+	hitPoints = 100;
+	attackDamage = 20;
 	std::cout << "ScavTrap Default Constructor was called" << std::endl;
 	return;
 }
 
-ScavTrap::ScavTrap(std::string _name) : name(_name),  energyPoints(50), hitPoints(100), attackDamage(20)
+ScavTrap::ScavTrap(std::string _name, int _enerP, int _hitP, int _attDam) : ClapTrap(_name), guardMode(false)
 {
-	std::cout << "ScavTrap Named Constructor was called" << name << std::endl;
-	return;
+	energyPoints = _enerP;
+	hitPoints = _hitP;
+	attackDamage = _attDam;
+	std::cout << "ScavTrap Named Constructor was called with the name " << name << std::endl;
 }
 
-ScavTrap::ScavTrap(ScavTrap const &src)
+ScavTrap::ScavTrap(ScavTrap const &src) : ClapTrap()
 {
 	std::cout << "ScavTrap Copy Constructor was called" << std::endl;
 	*this = src;
@@ -36,6 +41,9 @@ ScavTrap::~ScavTrap()
 	std::cout << "ScavTrap Destructor was called on " << name << std::endl;
 	return;
 }
+
+/* GETTERS */
+bool ScavTrap::getGuardMode() const { return (guardMode); }
 
 /* PUBLIC MEMBER FUNCTIONS */
 
@@ -61,5 +69,19 @@ void ScavTrap::attack(const std::string &target)
 	return;
 }
 
-    void guardGate(){ScavTrap is now in Gate keeper mode.}
+void ScavTrap::guardGate()
+{
+	guardMode = true;
+	std::cout << "ScavTrap is now in Gate keeper mode" << std::endl;
+	return;
+}
 
+std::ostream &operator<<(std::ostream &o, ScavTrap const &infile)
+{
+	std::cout << infile.getName() << "\033[32m]" << " has " << infile.getEnPoints()
+			  << " energy points." << std::endl;
+	std::cout << "Attack Damage: " << infile.getAttackDamage() << std::endl;
+	std::cout << "Hit Points: " << infile.getHitPoints() << std::endl;
+	std::cout << "Guard Mode: " << infile.getGuardMode() << std::endl;
+	return (o);
+}

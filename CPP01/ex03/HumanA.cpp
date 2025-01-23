@@ -2,13 +2,12 @@
 #include <iostream>
 #include <string>
 
-/*
-private:
-    std::string _name;
-    Weapon& _weapon;
+// private:
+//     std::string _name;
+//     Weapon& _weapon;
 
-public:
-*/
+// public:
+
 HumanA::HumanA(std::string nameVar, Weapon &weaponRef)
     : _name(nameVar), _weapon(weaponRef)
 {

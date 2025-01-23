@@ -16,28 +16,12 @@ int main(int argc, char **argv)
     std::string inputFile = argv[1];
     std::string outputFile = inputFile + ".replace";
 
-    std::ifstream infile(inputFile);
-    std::ofstream outfile(outputFile);
-
-    replaceText(infile, outfile, str1, str2);
-}
-
-void replaceText(std::ifstream &infile, std::ofstream &outfile, std::string str1, std::string str2)
-{
-    std::string buffer;
-    std::size_t position = -1;
-
-    while (std::getline(infile, buffer))
+    std::ifstream infile(inputFile.c_str()); // What happens here is the file doesn't exist
+    if (!infile)
     {
-        position = buffer.find(str1);
-        while (position != std::string::npos)
-        {
-            buffer.erase(position, str1.size());
-            buffer.insert(position, str2);
-            position = buffer.find(str1);
-        }
-        outfile << buffer;
-        if (infile.peek() != EOF)
-            outfile << '\n';
+        std::cerr << "Error: Could not open file " << inputFile << std::endl;
+        return 1;
     }
+    std::ofstream outfile(outputFile.c_str());
+    replaceText(infile, outfile, str1, str2);
 }

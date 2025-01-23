@@ -6,7 +6,7 @@
 #    By: myakoven <myakoven@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/30 16:42:50 by myakoven          #+#    #+#              #
-#    Updated: 2024/12/30 16:44:21 by myakoven         ###   ########.fr        #
+#    Updated: 2025/01/17 14:20:00 by myakoven         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 #* INGREDIENTS *#
 #***************#
 
-SRC = Contact.class.cpp PhoneBook.class.cpp PhoneBook.classPriv.cpp phoneBook.cpp
+SRC = Contact.class.cpp PhoneBook.class.cpp phoneBook.cpp
 OBJ = $(addprefix obj/, $(SRC:.cpp=.o))
 CC = g++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic

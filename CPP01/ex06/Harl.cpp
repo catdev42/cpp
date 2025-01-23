@@ -3,28 +3,12 @@
 #include <iostream>
 #include <string>
 
-void Harl::debug(void) const
+static void make_upper(std::string &str)
 {
-	std::cout << _debugVar << std::endl;
+	for (std::string::iterator it = str.begin(); it < str.end(); it++)
+		*it = static_cast<char>(std::toupper(static_cast<unsigned char>(*it)));
 	return;
 }
-void Harl::info(void) const
-{
-	std::cout << _infoVar << std::endl;
-	return;
-}
-void Harl::warning(void) const
-{
-	std::cout << _warningVar << std::endl;
-	return;
-}
-void Harl::error(void) const
-{
-	std::cout << _errorVar << std::endl;
-	return;
-}
-
-/* public: */
 
 Harl::Harl()
 {
@@ -50,41 +34,87 @@ Harl::~Harl()
 	return;
 }
 
-
-void Harl::complain(std::string level) const
+void Harl::debug(void) const
 {
-	int MAX = 4;
-
-	std::string levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-	void (Harl::*functions[])(void) const = {
-		&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
-
-	std::transform(level.begin(), level.end(), level.begin(), toupper);
-
-	for (int i = 0; i < MAX; i++)
-	{
-		if (levels[i] == level)
-		{
-			(this->*functions[i])();
-			return;
-		}
-	}
-	std::cout << "There is no such command:" << " " << level << std::endl;
+	std::cout << _debugVar << std::endl;
+	return;
+}
+void Harl::info(void) const
+{
+	std::cout << _infoVar << std::endl;
+	return;
+}
+void Harl::warning(void) const
+{
+	std::cout << _warningVar << std::endl;
+	return;
+}
+void Harl::error(void) const
+{
+	std::cout << _errorVar << std::endl;
 	return;
 }
 
-int Harl::getLevel(std::string level) const
+int Harl::determineLevel(std::string level) const
 {
 	int MAX = 4;
 	std::string levels[] = {"DEBUG",
 							"INFO",
 							"WARNING",
 							"ERROR"};
-	std::transform(level.begin(), level.end(), level.begin(), toupper);
+
+	make_upper(level);
 	for (int i = 0; i < MAX; i++)
 	{
 		if (levels[i] == level)
 			return (i);
 	}
-	return (-1);
+	return (MAX);
+}
+
+void Harl::complain(std::string level) const
+{
+	int levelIndex;
+	void (Harl::*functions[])(void) const = {
+		&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+
+	make_upper(level);
+	levelIndex = determineLevel(level);
+	if (levelIndex != -1)
+	{
+		(this->*functions[levelIndex])();
+		return;
+	}
+	std::cout << "There is no such command:" << " " << level << std::endl;
+	return;
+}
+
+void Harl::harlFilter(std::string level, Harl &harl)
+{
+	int index = harl.determineLevel(level);
+	std::string levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+
+	switch (index)
+	{
+	case 0:
+		callHarlComplaint(levels[index++], harl);
+	case 1:
+		callHarlComplaint(levels[index++], harl);
+	case 2:
+		callHarlComplaint(levels[index++], harl);
+	case 3:
+	{
+		callHarlComplaint(levels[index++], harl);
+		break;
+	}
+	default:
+		std::cout << "[ Probably complaining about insignificant problems ] " << std::endl;
+	}
+}
+
+void Harl::callHarlComplaint(std::string level, Harl &harl)
+{
+	std::cout << "[ " << level << " ]" << std::endl;
+	harl.complain(level);
+	std::cout << std::endl;
 }

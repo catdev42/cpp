@@ -3,19 +3,19 @@
 
 ClapTrap::ClapTrap() : name("Nameless"), energyPoints(10), hitPoints(10), attackDamage(0)
 {
-	std::cout << "Default Constructor was called" << std::endl;
+	std::cout << "Default Constructor was called (name: Nameless)" << std::endl;
 	return;
 }
 
 ClapTrap::ClapTrap(std::string _name) : name(_name), energyPoints(10), hitPoints(10), attackDamage(0)
 {
-	std::cout << "Named Constructor was called" << name << std::endl;
+	std::cout << "ClapTrap Named Constructor was called with the name " << name << std::endl;
 	return;
 }
 
 ClapTrap::ClapTrap(ClapTrap const &src)
 {
-	std::cout << "Copy Constructor was called" << std::endl;
+	std::cout << "Copy Constructor was called. Name: " << src.getName() << std::endl;
 	*this = src;
 	return;
 }
@@ -23,10 +23,13 @@ ClapTrap::ClapTrap(ClapTrap const &src)
 ClapTrap &ClapTrap::operator=(ClapTrap const &rhs)
 {
 	std::cout << "Operator= overloader was called" << std::endl;
-	name = rhs.name;
-	energyPoints = rhs.energyPoints;
-	hitPoints = rhs.hitPoints;
-	attackDamage = rhs.attackDamage;
+	if (this != &rhs)
+	{
+		name = rhs.name;
+		energyPoints = rhs.energyPoints;
+		hitPoints = rhs.hitPoints;
+		attackDamage = rhs.attackDamage;
+	}
 	return (*this);
 }
 
@@ -35,6 +38,13 @@ ClapTrap::~ClapTrap()
 	std::cout << "ClapTrap Destructor was called on " << name << std::endl;
 	return;
 }
+
+/* GETTERS */
+
+int ClapTrap::getEnPoints() const { return (energyPoints); }
+int ClapTrap::getHitPoints() const { return (hitPoints); }
+int ClapTrap::getAttackDamage() const { return (attackDamage); }
+std::string ClapTrap::getName() const { return (name); }
 
 /* PUBLIC MEMBER FUNCTIONS */
 
@@ -80,10 +90,19 @@ void ClapTrap::beRepaired(unsigned int amount)
 {
 	if (energyPoints)
 	{
-		std::cout << "ClapTrap " << name << " is repaired by " << amount
-				  << " and now has " << hitPoints << " remaining " << std::endl;
 		this->energyPoints--;
 		this->hitPoints += amount;
+		std::cout << "ClapTrap " << name << " is repaired by " << amount
+				  << " and now has " << hitPoints << " remaining " << std::endl;
 	}
 	return;
+}
+
+std::ostream &operator<<(std::ostream &o, ClapTrap const &infile)
+{
+	std::cout << infile.getName() << "\033[32m]" << " has " << infile.getEnPoints()
+			  << " energy points." << std::endl;
+	std::cout << "Attack Damage: " << infile.getAttackDamage() << std::endl;
+	std::cout << "Hit Points: " << infile.getHitPoints() << std::endl;
+	return (o);
 }

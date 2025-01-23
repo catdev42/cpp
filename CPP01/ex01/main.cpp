@@ -6,7 +6,7 @@
 /*   By: myakoven <myakoven@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 20:26:44 by myakoven          #+#    #+#             */
-/*   Updated: 2024/12/30 21:29:11 by myakoven         ###   ########.fr       */
+/*   Updated: 2025/01/19 16:34:02 by myakoven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,16 @@
 int main(void)
 {
 
-    Zombie *hordePtr;
     int i;
-    int N;
-    
-    N = 20;
-    hordePtr = zombieHorde(N, "Adam");
+    int N = 20; //number of zombies to create
+    Zombie *horde = zombieHorde(N, "Adam"); //call to create horde with N zombies and a name
+
     i = 0;
     while (i < N)
     {
         std::cout << i << ") ";
-        hordePtr[i].announce();
+        horde[i].announce();
         i++;
     }
-    delete [] hordePtr;
+    delete[] horde;
 }

@@ -11,12 +11,18 @@ protected:
 	int hitPoints;
 	int attackDamage;
 
+
 public:
 	ClapTrap();
 	ClapTrap(std::string _name);
 	ClapTrap(ClapTrap const &src);
 	ClapTrap &operator=(ClapTrap const &rhs);
 	~ClapTrap();
+	
+	int getEnPoints() const;
+	int getHitPoints() const;
+	int getAttackDamage() const;
+	std::string getName() const;
 
 	void attack(const std::string &target);
 	void takeDamage(unsigned int amount);

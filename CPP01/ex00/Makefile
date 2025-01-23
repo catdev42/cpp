@@ -6,7 +6,7 @@
 #    By: myakoven <myakoven@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/30 16:42:50 by myakoven          #+#    #+#              #
-#    Updated: 2024/12/30 21:10:16 by myakoven         ###   ########.fr        #
+#    Updated: 2025/01/19 16:42:33 by myakoven         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@
 
 SRC = Zombie.cpp newZombie.cpp randomChump.cpp main.cpp
 OBJ = $(addprefix obj/, $(SRC:.cpp=.o))
-CC = g++
+CC = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
 
 NAME = zombie

@@ -6,7 +6,7 @@
 /*   By: myakoven <myakoven@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/01 19:04:19 by myakoven          #+#    #+#             */
-/*   Updated: 2025/01/01 19:09:16 by myakoven         ###   ########.fr       */
+/*   Updated: 2025/01/21 14:37:03 by myakoven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,20 @@
 #include <iostream>
 #include <string>
 
-int main(void)
+int main(int argc, char **argv)
 {
+	int i = 1;
 	std::string level;
 	Harl harl;
 
-	level = "debug";
-	harl.complain(level);
-	level = "info";
-	harl.complain(level);
-	level = "WARNING";
-	harl.complain(level);
-	level = "Error";
-	harl.complain(level);
-	level = "help";
-	harl.complain(level);
+	if (argc < 2)
+		std::cout << "Please enter your comlaint level: DEBUG, INTO, WARNING or ERROR" << std::endl;
+	else
+		while (argv[i])
+		{
+			harl.complain(argv[i++]);
+			if (argv[i])
+				std::cout << std::endl;
+		}
+	return 0;
 }

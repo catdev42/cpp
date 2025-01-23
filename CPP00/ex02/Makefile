@@ -6,7 +6,7 @@
 #    By: myakoven <myakoven@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/30 16:44:39 by myakoven          #+#    #+#              #
-#    Updated: 2024/12/30 16:45:41 by myakoven         ###   ########.fr        #
+#    Updated: 2025/01/18 17:59:47 by myakoven         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@
 
 NAME = bank
 
-SRC = Accounts.cpp tests.cpp
+SRC = Account.cpp tests.cpp
 OBJ = $(addprefix obj/, $(SRC:.cpp=.o))
 CC = g++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
