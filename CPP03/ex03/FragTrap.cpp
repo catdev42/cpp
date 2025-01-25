@@ -29,10 +29,12 @@ FragTrap::FragTrap(FragTrap const &src) : ClapTrap()
 FragTrap &FragTrap::operator=(FragTrap const &rhs)
 {
 	std::cout << "FragTrap  Operator= overloader was called" << std::endl;
-	name = rhs.name;
-	energyPoints = rhs.energyPoints;
-	hitPoints = rhs.hitPoints;
-	attackDamage = rhs.attackDamage;
+	if (this != &rhs)
+		ClapTrap::operator=(rhs);
+	// name = rhs.name;
+	// energyPoints = rhs.energyPoints;
+	// hitPoints = rhs.hitPoints;
+	// attackDamage = rhs.attackDamage;
 	return (*this);
 }
 

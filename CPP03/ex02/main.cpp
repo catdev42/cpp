@@ -21,6 +21,7 @@ int main()
     fraggy.attack("MOOOO");
     fraggy.beRepaired(2);
     fraggy.takeDamage(8);
+    fraggy.getEnPoints();
 
     return 0;
 }

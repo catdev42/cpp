@@ -1,6 +1,8 @@
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
+
 
 #include <iostream>
 
@@ -21,6 +23,10 @@ int main()
     fraggy.attack("MOOOO");
     fraggy.beRepaired(2);
     fraggy.takeDamage(8);
+
+    std::cout << std::endl;
+
+    Dia
 
     return 0;
 }

@@ -39,64 +39,14 @@ DiamondTrap::~DiamondTrap()
 	return;
 }
 
-/* GETTERS */
-
-int DiamondTrap::getEnPoints() const { return (energyPoints); }
-int DiamondTrap::getHitPoints() const { return (hitPoints); }
-int DiamondTrap::getAttackDamage() const { return (attackDamage); }
-std::string DiamondTrap::getName() const { return (name); }
-
 /* PUBLIC MEMBER FUNCTIONS */
 
-void DiamondTrap::attack(const std::string &target)
-{
-	if (hitPoints > 0 && energyPoints > 0)
-	{
-		std::cout << name << " attacks target " << target
-				  << " causing " << attackDamage << " points of damage" << std::endl;
-		this->energyPoints--;
-		return;
+	void whoAmI(){
+			std::cout << infile.getName() << "\033[32m" << " has " << infile.getEnPoints()
+			  << " energy points." << std::endl;
 	}
-	if (hitPoints <= 0)
-	{
-		std::cout << "DiamondTrap " << name << " is not able to attack "
-				  << target << " due to no hit points left." << std::endl;
-	}
-	if (energyPoints <= 0)
-	{
-		std::cout << "DiamondTrap " << name << " is not able to attack "
-				  << target << " due to no energy points left." << std::endl;
-	}
-	return;
-}
 
-void DiamondTrap::takeDamage(unsigned int amount)
-{
-	unsigned int amountUsed = amount;
-	while (hitPoints > 0 && amountUsed > 0)
-	{
-		hitPoints--;
-		amountUsed--;
-	}
-	if (hitPoints == 0)
-		std::cout << "DiamondTrap " << name << " is dead after an attack of " << amount << std::endl;
-	else
-		std::cout << "DiamondTrap " << name << " has sustained damage of "
-				  << amount << " and has " << hitPoints << " remaining " << std::endl;
-	return;
-}
-
-void DiamondTrap::beRepaired(unsigned int amount)
-{
-	if (energyPoints)
-	{
-		this->energyPoints--;
-		this->hitPoints += amount;
-		std::cout << "DiamondTrap " << name << " is repaired by " << amount
-				  << " and now has " << hitPoints << " remaining " << std::endl;
-	}
-	return;
-}
+/* NONMEMBER */
 
 std::ostream &operator<<(std::ostream &o, DiamondTrap const &infile)
 {

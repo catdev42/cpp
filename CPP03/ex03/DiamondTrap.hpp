@@ -3,8 +3,10 @@
 
 #include <iostream>
 #include "ClapTrap.hpp"
+#include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
-class DiamondTrap : public ClapTrap
+class DiamondTrap : public ScavTrap, public FragTrap
 {
 private:
 	std::string name;
@@ -16,9 +18,9 @@ public:
 	DiamondTrap &operator=(DiamondTrap const &rhs);
 	~DiamondTrap();
 
-	void attack(const std::string &target);
-	void takeDamage(unsigned int amount);
-	void beRepaired(unsigned int amount);
+	// void attack(const std::string &target);
+	using ScavTrap::attack;
+	void whoAmI();
 };
 
 std::ostream &operator<<(std::ostream &o, DiamondTrap const &infile);
