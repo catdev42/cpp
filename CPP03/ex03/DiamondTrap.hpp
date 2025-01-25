@@ -2,6 +2,7 @@
 #define DIAMONDTRAP_HPP
 
 #include <iostream>
+#include <string>
 #include "ClapTrap.hpp"
 #include "FragTrap.hpp"
 #include "ScavTrap.hpp"
@@ -18,7 +19,9 @@ public:
 	DiamondTrap &operator=(DiamondTrap const &rhs);
 	~DiamondTrap();
 
-	// void attack(const std::string &target);
+	std::string getName() const;
+	void setNewName(std::string _name);
+
 	using ScavTrap::attack;
 	void whoAmI();
 };

@@ -6,7 +6,7 @@
 /*   By: myakoven <myakoven@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 05:44:10 by myakoven          #+#    #+#             */
-/*   Updated: 2025/01/25 21:34:04 by myakoven         ###   ########.fr       */
+/*   Updated: 2025/01/12 12:23:40 by myakoven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,8 @@ public:
 	void setRawBits(int const raw);
 	void setValue(int const num);
 	void setValue(float const num);
-
+	
 	int getRawBits(void) const;
-	int getAvailBits(void) const;
 	float toFloat(void) const;
 	int toInt(void) const;
 
@@ -54,10 +53,6 @@ public:
 	Fixed operator+(Fixed const &other) const;
 	Fixed operator-(Fixed const &other) const;
 	Fixed operator*(Fixed const &other) const;
-
-	Fixed &operator*=(int const num);
-	Fixed &operator*=(Fixed const &other);
-
 	Fixed operator/(Fixed const &other) const;
 
 	// pre
@@ -69,8 +64,5 @@ public:
 };
 
 std::ostream &operator<<(std::ostream &o, Fixed const &infile);
-
-Fixed operator*(Fixed const &fixObj, int const num);
-Fixed operator*(int const num, Fixed const &fixObj);
 
 #endif

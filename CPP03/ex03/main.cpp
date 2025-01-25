@@ -3,7 +3,6 @@
 #include "FragTrap.hpp"
 #include "DiamondTrap.hpp"
 
-
 #include <iostream>
 
 // TODO: write tester
@@ -26,7 +25,17 @@ int main()
 
     std::cout << std::endl;
 
-    Dia
+    DiamondTrap dia("Dia");
+    dia.attack("MOOOO");
+    dia.beRepaired(2);
+    dia.takeDamage(8);
+    dia.whoAmI();
+    std::cout << dia << std::endl;
+
+    // ScavTrap scavvy2 = scavvy;
+    // scavvy2.setNewName("Scavvy2");
+    // ScavTrap scavvy3 = dia;
+    // scavvy3.setNewName("Scavvy3");
 
     return 0;
 }

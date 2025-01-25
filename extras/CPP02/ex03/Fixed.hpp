@@ -6,7 +6,7 @@
 /*   By: myakoven <myakoven@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 05:44:10 by myakoven          #+#    #+#             */
-/*   Updated: 2025/01/25 21:34:04 by myakoven         ###   ########.fr       */
+/*   Updated: 2025/01/12 15:26:20 by myakoven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,6 @@ std::ostream &operator<<(std::ostream &o, Fixed const &infile);
 
 Fixed operator*(Fixed const &fixObj, int const num);
 Fixed operator*(int const num, Fixed const &fixObj);
+// Fixed operator*(Fixed const &fixObj1, Fixed const &fixObj2);
 
 #endif

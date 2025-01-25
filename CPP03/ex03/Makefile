@@ -1,14 +1,13 @@
-
 #***************#
 #* INGREDIENTS *#
 #***************#
 
-SRC = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
+SRC = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 OBJ = $(addprefix obj/, $(SRC:.cpp=.o))
 CC = c++
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
+CPPFLAGS = -Wall -Wextra -Werror -Wshadow -std=c++98 -pedantic
 
-NAME = fragtrap
+NAME = trap
 
 #****************#
 #*    RECIPE    *#
@@ -33,3 +32,22 @@ fclean: clean
 re: fclean $(NAME)
 
 .PHONY: all clean fclean re
+
+#**********#
+#* Colors *#
+#**********#
+
+GREEN := \033[32m
+RED := \033[31m
+YELLOW := \033[33m
+BLUE := \033[34m
+MAGENTA := \033[35m
+CYAN := \033[36m
+WHITE := \033[37m
+RESET := \033[0m
+
+# Text formatting
+BOLD := \033[1m
+DIM := \033[2m
+ITALIC := \033[3m
+UNDERLINE := \033[4m

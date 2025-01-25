@@ -1,6 +1,5 @@
 #include "Fixed.hpp"
 #include <iostream>
-#include <cmath>
 
 Fixed::Fixed() : _value(0)
 {
@@ -157,7 +156,7 @@ Fixed Fixed::operator*(Fixed const &other) const
 {
 	Fixed temp;
 	int64_t multResult = (int64_t)this->_value * (int64_t)other.getRawBits();
-	int result = static_cast<int>(roundf(multResult / (1 << this->_availBits)));
+	int result = static_cast<int>(std::roundf(multResult / (1 << this->_availBits)));
 	temp.setRawBits(result);
 	return (temp);
 }
@@ -166,7 +165,7 @@ Fixed Fixed::operator/(Fixed const &other) const
 {
 	Fixed temp;
 	int64_t multResult = (int64_t)this->_value * (1 << this->_availBits);
-	int result = static_cast<int>(roundf(multResult / (int64_t)other._value));
+	int result = static_cast<int>(std::roundf(multResult / (int64_t)other._value));
 	temp.setRawBits(result);
 	return (temp);
 }

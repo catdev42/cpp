@@ -29,9 +29,8 @@ ScavTrap::ScavTrap(ScavTrap const &src) : ClapTrap()
 ScavTrap &ScavTrap::operator=(ScavTrap const &rhs)
 {
 	std::cout << "ScavTrap  Operator= overloader was called" << std::endl;
-	name = rhs.name;
-	energyPoints = rhs.energyPoints;
-	hitPoints = rhs.hitPoints;
+	if (this != &rhs)
+		ClapTrap::operator=(rhs);
 	attackDamage = rhs.attackDamage;
 	return (*this);
 }

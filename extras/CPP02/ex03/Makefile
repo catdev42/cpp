@@ -11,14 +11,6 @@ CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
 NAME = BSP
 
 #****************#
-#*    DEBUG    *#
-#****************#
-
-ifeq ($(DEBUG), 1)
-	CPPFLAGS	+= -ggdb3 -O0 -DDEBUG
-endif
-
-#****************#
 #*    RECIPE    *#
 #****************#
 

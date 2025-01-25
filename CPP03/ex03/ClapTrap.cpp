@@ -3,7 +3,7 @@
 
 ClapTrap::ClapTrap() : name("Nameless"), energyPoints(10), hitPoints(10), attackDamage(0)
 {
-	std::cout << "Default Constructor was called (name: Nameless)" << std::endl;
+	std::cout << "Default Claptrap Constructor was called (name: Nameless)" << std::endl;
 	return;
 }
 
@@ -45,6 +45,10 @@ int ClapTrap::getEnPoints() const { return (energyPoints); }
 int ClapTrap::getHitPoints() const { return (hitPoints); }
 int ClapTrap::getAttackDamage() const { return (attackDamage); }
 std::string ClapTrap::getName() const { return (name); }
+void ClapTrap::setNewName(std::string _name)
+{
+	name = _name;
+}
 
 /* PUBLIC MEMBER FUNCTIONS */
 
@@ -100,9 +104,9 @@ void ClapTrap::beRepaired(unsigned int amount)
 
 std::ostream &operator<<(std::ostream &o, ClapTrap const &infile)
 {
-	std::cout << infile.getName() << "\033[32m" << " has " << infile.getEnPoints()
+	std::cout << infile.getName() << GREEN << " has " << infile.getEnPoints()
 			  << " energy points." << std::endl;
 	std::cout << "Attack Damage: " << infile.getAttackDamage() << std::endl;
-	std::cout << "Hit Points: " << infile.getHitPoints() << "\033[0m" << std::endl;
+	std::cout << "Hit Points: " << infile.getHitPoints() << RESET << std::endl;
 	return (o);
 }

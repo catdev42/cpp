@@ -6,12 +6,13 @@
 /*   By: myakoven <myakoven@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 12:28:41 by myakoven          #+#    #+#             */
-/*   Updated: 2025/01/12 15:26:33 by myakoven         ###   ########.fr       */
+/*   Updated: 2025/01/25 21:34:22 by myakoven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 #include <iostream>
+#include <cmath>
 
 Fixed::Fixed() : _value(0)
 {
@@ -174,36 +175,29 @@ Fixed Fixed::operator*(Fixed const &other) const
 {
 	Fixed temp;
 	int64_t multResult = (int64_t)this->_value * (int64_t)other.getRawBits();
-	int result = static_cast<int>(std::roundf(multResult / (1 << this->_availBits)));
+	int result = static_cast<int>(roundf(multResult / (1 << this->_availBits)));
 	temp.setRawBits(result);
 	return (temp);
 }
 
 Fixed &Fixed::operator*=(int const num)
 {
-	this->_value = static_cast<int>(std::roundf(static_cast<float>(this->_value) * num));
+	this->_value = static_cast<int>(roundf(static_cast<float>(this->_value) * num));
 	return (*this);
 }
 
 Fixed &Fixed::operator*=(Fixed const &other)
 {
 	int64_t multResult = (int64_t)this->_value * (int64_t)other.getRawBits();
-	this->_value = static_cast<int>(std::roundf(multResult / (1 << this->_availBits)));
+	this->_value = static_cast<int>(roundf(multResult / (1 << this->_availBits)));
 	return (*this);
 }
-
-// Fixed Fixed::operator*(int const num) const
-// {
-// 	Fixed temp;
-// 	temp.setRawBits(this->getRawBits() * num);
-// 	return (temp);
-// }
 
 Fixed Fixed::operator/(Fixed const &other) const
 {
 	Fixed temp;
 	int64_t multResult = (int64_t)this->_value * (1 << this->_availBits);
-	int result = static_cast<int>(std::roundf(multResult / (int64_t)other._value));
+	int result = static_cast<int>(roundf(multResult / (int64_t)other._value));
 	temp.setRawBits(result);
 	return (temp);
 }
@@ -255,12 +249,3 @@ Fixed operator*(int const num, Fixed const &fixObj)
 {
 	return (fixObj * Fixed(num));
 }
-
-// Fixed operator*(Fixed const &fixObj1, Fixed const &fixObj2)
-// {
-// 	Fixed temp;
-// 	int64_t multResult = (int64_t)fixObj1.getRawBits() * (int64_t)fixObj2.getRawBits();
-// 	int result = static_cast<int>(std::roundf(multResult / (1 << fixObj1.getAvailBits())));
-// 	temp.setRawBits(result);
-// 	return (temp);
-// }

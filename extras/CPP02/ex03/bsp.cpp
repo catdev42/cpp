@@ -6,7 +6,7 @@
 /*   By: myakoven <myakoven@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 13:45:28 by myakoven          #+#    #+#             */
-/*   Updated: 2025/01/25 21:15:38 by myakoven         ###   ########.fr       */
+/*   Updated: 2025/01/12 15:46:05 by myakoven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 #include <iostream>
 
 // Area A = [ x1(y2 – y3) + x2(y3 – y1) + x3(y1-y2)]/2
+
+/*
+IT WOULD BE NICE IF THE MATH WAS DONE ON FIXED POINT NUMBERS!!! Otherwise whats the point, right now its like we are just storing the ints and working with flaots anyway, its dumb...
+*/
 
 Fixed area(Point const a, Point const b, Point const c)
 {

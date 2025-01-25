@@ -31,10 +31,6 @@ FragTrap &FragTrap::operator=(FragTrap const &rhs)
 	std::cout << "FragTrap  Operator= overloader was called" << std::endl;
 	if (this != &rhs)
 		ClapTrap::operator=(rhs);
-	// name = rhs.name;
-	// energyPoints = rhs.energyPoints;
-	// hitPoints = rhs.hitPoints;
-	// attackDamage = rhs.attackDamage;
 	return (*this);
 }
 
@@ -76,9 +72,9 @@ void FragTrap::highFiveGuys()
 
 std::ostream &operator<<(std::ostream &o, FragTrap const &infile)
 {
-	std::cout << "FragTrap " << infile.getName() << "\033[32m" << " has "
+	std::cout << "FragTrap " << infile.getName() << GREEN << " has "
 			  << infile.getEnPoints() << " energy points." << std::endl;
 	std::cout << "Attack Damage: " << infile.getAttackDamage() << std::endl;
-	std::cout << "Hit Points: " << infile.getHitPoints() << "\033[0m" << std::endl;
+	std::cout << "Hit Points: " << infile.getHitPoints() << RESET << std::endl;
 	return (o);
 }
