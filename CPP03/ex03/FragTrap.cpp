@@ -2,20 +2,20 @@
 #include "FragTrap.hpp"
 #include <iostream>
 
-FragTrap::FragTrap(int _enerP, int _hitP, int _attDam) : ClapTrap()
+FragTrap::FragTrap() : ClapTrap()
 {
-	energyPoints = _enerP;
-	hitPoints = _hitP;
-	attackDamage = _attDam;
+	energyPoints = default_energy_points;
+	hitPoints = default_hit_points;
+	attackDamage = default_attack_damage;
 	std::cout << "FragTrap Default Constructor was called" << std::endl;
 	return;
 }
 
-FragTrap::FragTrap(std::string _name, int _enerP, int _hitP, int _attDam) : ClapTrap(_name)
+FragTrap::FragTrap(std::string _name) : ClapTrap(_name)
 {
-	energyPoints = _enerP;
-	hitPoints = _hitP;
-	attackDamage = _attDam;
+	energyPoints = default_energy_points;
+	hitPoints = default_hit_points;
+	attackDamage = default_attack_damage;
 	std::cout << "FragTrap Named Constructor was called with the name " << getName() << std::endl;
 }
 
@@ -28,7 +28,7 @@ FragTrap::FragTrap(FragTrap const &src) : ClapTrap()
 
 FragTrap &FragTrap::operator=(FragTrap const &rhs)
 {
-	std::cout << "FragTrap  Operator= overloader was called" << std::endl;
+	std::cout << "FragTrap assignment operator= called" << std::endl;
 	if (this != &rhs)
 		ClapTrap::operator=(rhs);
 	return (*this);
@@ -66,7 +66,7 @@ void FragTrap::attack(const std::string &target)
 
 void FragTrap::highFiveGuys()
 {
-	std::cout << "High Fives request ACCEPTED by FragTrap " << getName() << std::endl;
+	std::cout << BLUE << "High Fives request ACCEPTED by FragTrap " << getName() << RESET << std::endl;
 	return;
 }
 

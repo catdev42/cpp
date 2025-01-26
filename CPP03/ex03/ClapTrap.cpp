@@ -22,7 +22,7 @@ ClapTrap::ClapTrap(ClapTrap const &src)
 
 ClapTrap &ClapTrap::operator=(ClapTrap const &rhs)
 {
-	std::cout << "Operator= overloader was called" << std::endl;
+	std::cout << "ClapTrap assignment operator= called" << std::endl;
 	if (this != &rhs)
 	{
 		name = rhs.name;

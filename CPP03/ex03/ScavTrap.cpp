@@ -4,18 +4,18 @@
 
 ScavTrap::ScavTrap() : ClapTrap(), guardMode(false)
 {
-	energyPoints = 50;
-	hitPoints = 100;
-	attackDamage = 20;
+	energyPoints = default_energy_points;
+	hitPoints = default_hit_points;
+	attackDamage = default_attack_damage;
 	std::cout << "ScavTrap Default Constructor was called" << std::endl;
 	return;
 }
 
-ScavTrap::ScavTrap(std::string _name, int _enerP, int _hitP, int _attDam) : ClapTrap(_name), guardMode(false)
+ScavTrap::ScavTrap(std::string _name) : ClapTrap(_name), guardMode(false)
 {
-	energyPoints = _enerP;
-	hitPoints = _hitP;
-	attackDamage = _attDam;
+	energyPoints = default_energy_points;
+	hitPoints = default_hit_points;
+	attackDamage = default_attack_damage;
 	std::cout << "ScavTrap Named Constructor was called with the name " << getName() << std::endl;
 }
 
@@ -28,10 +28,12 @@ ScavTrap::ScavTrap(ScavTrap const &src) : ClapTrap()
 
 ScavTrap &ScavTrap::operator=(ScavTrap const &rhs)
 {
-	std::cout << "ScavTrap  Operator= overloader was called" << std::endl;
+	std::cout << "ScavTrap assignment operator= called" << std::endl;
 	if (this != &rhs)
+	{
 		ClapTrap::operator=(rhs);
-	guardMode = rhs.guardMode;
+		guardMode = rhs.guardMode;
+	}
 	return (*this);
 }
 

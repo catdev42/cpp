@@ -36,6 +36,7 @@ int main()
     dia2.setNewName("Dia2");
     dia2.guardGate();
     dia2.whoAmI();
+    dia2.highFiveGuys();
     std::cout << dia2 << std::endl;
 
     // ScavTrap scavvy2 = scavvy;

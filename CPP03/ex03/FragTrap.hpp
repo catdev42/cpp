@@ -6,7 +6,7 @@
 /*   By: myakoven <myakoven@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 08:47:00 by myakoven          #+#    #+#             */
-/*   Updated: 2025/01/25 18:21:18 by myakoven         ###   ########.fr       */
+/*   Updated: 2025/01/26 23:17:29 by myakoven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,19 @@
 class FragTrap : virtual public ClapTrap
 {
 private:
-	
+protected:
+	static const int default_hit_points = 100;
+	static const int default_energy_points = 100;
+	static const int default_attack_damage = 30;
+
 public:
-	FragTrap(int _enerP = 100, int _hitP = 100, int _attDam = 30);
-	FragTrap(std::string _name, int _enerP = 100, int _hitP = 100, int _attDam = 30);
+	FragTrap();
+	FragTrap(std::string _name);
 	FragTrap(FragTrap const &src);
 	FragTrap &operator=(FragTrap const &rhs);
 	~FragTrap();
 
-
 	void attack(const std::string &target);
-
 	void highFiveGuys();
 };
 

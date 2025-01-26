@@ -11,7 +11,10 @@ class DiamondTrap : public ScavTrap, public FragTrap
 {
 private:
 	std::string name;
-
+	static const int default_hit_points = FragTrap::default_hit_points;
+	static const int default_energy_points = ScavTrap::default_energy_points;
+	static const int default_attack_damage = FragTrap::default_attack_damage;
+	
 public:
 	DiamondTrap();
 	DiamondTrap(std::string _name);
