@@ -16,7 +16,7 @@ ScavTrap::ScavTrap(std::string _name, int _enerP, int _hitP, int _attDam) : Clap
 	energyPoints = _enerP;
 	hitPoints = _hitP;
 	attackDamage = _attDam;
-	std::cout << "ScavTrap Named Constructor was called with the name " << name << std::endl;
+	std::cout << "ScavTrap Named Constructor was called with the name " << getName() << std::endl;
 }
 
 ScavTrap::ScavTrap(ScavTrap const &src) : ClapTrap()
@@ -31,13 +31,13 @@ ScavTrap &ScavTrap::operator=(ScavTrap const &rhs)
 	std::cout << "ScavTrap  Operator= overloader was called" << std::endl;
 	if (this != &rhs)
 		ClapTrap::operator=(rhs);
-	attackDamage = rhs.attackDamage;
+	guardMode = rhs.guardMode;
 	return (*this);
 }
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "ScavTrap Destructor was called on " << name << std::endl;
+	std::cout << "ScavTrap Destructor was called on " << getName() << std::endl;
 	return;
 }
 
@@ -53,19 +53,19 @@ void ScavTrap::attack(const std::string &target)
 {
 	if (hitPoints > 0 && energyPoints > 0)
 	{
-		std::cout << name << " attacks target " << target
+		std::cout << getName() << " attacks target " << target
 				  << " causing " << attackDamage << " points of damage" << std::endl;
 		this->energyPoints--;
 		return;
 	}
 	if (hitPoints <= 0)
 	{
-		std::cout << "ScavTrap " << name << " is not able to attack "
+		std::cout << "ScavTrap " << getName() << " is not able to attack "
 				  << target << " due to no hit points left." << std::endl;
 	}
 	if (energyPoints <= 0)
 	{
-		std::cout << "ScavTrap " << name << " is not able to attack "
+		std::cout << "ScavTrap " << getName() << " is not able to attack "
 				  << target << " due to no energy points left." << std::endl;
 	}
 	return;
@@ -80,10 +80,10 @@ void ScavTrap::guardGate()
 
 std::ostream &operator<<(std::ostream &o, ScavTrap const &infile)
 {
-	std::cout << "ScavTrap " << infile.getName() << "\033[32m" << " has "
-			  << infile.getEnPoints() << " energy points." << std::endl;
+	std::cout << GREEN << "ScavTrap " << infile.getName()
+			  << " has " << infile.getEnPoints() << " energy points." << std::endl;
 	std::cout << "Attack Damage: " << infile.getAttackDamage() << std::endl;
 	std::cout << "Hit Points: " << infile.getHitPoints() << std::endl;
-	std::cout << "Guard Mode: " << infile.getGuardMode() << "\033[0m" << std::endl;
+	std::cout << "Guard Mode: " << infile.getGuardMode() << RESET << std::endl;
 	return (o);
 }

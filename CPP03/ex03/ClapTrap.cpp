@@ -104,7 +104,8 @@ void ClapTrap::beRepaired(unsigned int amount)
 
 std::ostream &operator<<(std::ostream &o, ClapTrap const &infile)
 {
-	std::cout << infile.getName() << GREEN << " has " << infile.getEnPoints()
+	std::cout << GREEN << infile.getName()
+			  << " has " << infile.getEnPoints()
 			  << " energy points." << std::endl;
 	std::cout << "Attack Damage: " << infile.getAttackDamage() << std::endl;
 	std::cout << "Hit Points: " << infile.getHitPoints() << RESET << std::endl;

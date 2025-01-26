@@ -6,7 +6,7 @@
 /*   By: myakoven <myakoven@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 18:29:55 by myakoven          #+#    #+#             */
-/*   Updated: 2025/01/25 18:56:47 by myakoven         ###   ########.fr       */
+/*   Updated: 2025/01/26 21:25:01 by myakoven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ DiamondTrap &DiamondTrap::operator=(DiamondTrap const &rhs)
 	std::cout << "Operator= overloader was called" << std::endl;
 	if (this != &rhs)
 	{
+		ClapTrap::operator=(rhs);
+		ClapTrap::setNewName(rhs.name + "_clap_trap");
 		name = rhs.name;
-		energyPoints = rhs.energyPoints;
-		hitPoints = rhs.hitPoints;
 		attackDamage = rhs.attackDamage;
 	}
 	return (*this);
@@ -80,9 +80,10 @@ void DiamondTrap::whoAmI()
 
 std::ostream &operator<<(std::ostream &o, DiamondTrap const &infile)
 {
-	std::cout << GREEN << infile.getName() << " has " << infile.getEnPoints()
-			  << " energy points." << std::endl;
+	std::cout << GREEN << infile.getName()
+			  << " has " << infile.getEnPoints() << " energy points." << std::endl;
 	std::cout << "Attack Damage: " << infile.getAttackDamage() << std::endl;
-	std::cout << "Hit Points: " << infile.getHitPoints() << RESET << std::endl;
+	std::cout << "Hit Points: " << infile.getHitPoints() << std::endl;
+	std::cout << "GuardMode: " << infile.getGuardMode() << RESET << std::endl;
 	return (o);
 }

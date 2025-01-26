@@ -5,12 +5,13 @@
 
 class ClapTrap
 {
-protected:
+private:
 	std::string name;
+
+protected:
 	int energyPoints;
 	int hitPoints;
 	int attackDamage;
-
 
 public:
 	ClapTrap();
@@ -18,7 +19,7 @@ public:
 	ClapTrap(ClapTrap const &src);
 	ClapTrap &operator=(ClapTrap const &rhs);
 	~ClapTrap();
-	
+
 	int getEnPoints() const;
 	int getHitPoints() const;
 	int getAttackDamage() const;

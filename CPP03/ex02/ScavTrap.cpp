@@ -16,7 +16,7 @@ ScavTrap::ScavTrap(std::string _name, int _enerP, int _hitP, int _attDam) : Clap
 	energyPoints = _enerP;
 	hitPoints = _hitP;
 	attackDamage = _attDam;
-	std::cout << "ScavTrap Named Constructor was called with the name " << name << std::endl;
+	std::cout << "ScavTrap Named Constructor was called with the name " << getName() << std::endl;
 }
 
 ScavTrap::ScavTrap(ScavTrap const &src) : ClapTrap()
@@ -29,16 +29,14 @@ ScavTrap::ScavTrap(ScavTrap const &src) : ClapTrap()
 ScavTrap &ScavTrap::operator=(ScavTrap const &rhs)
 {
 	std::cout << "ScavTrap  Operator= overloader was called" << std::endl;
-	name = rhs.name;
-	energyPoints = rhs.energyPoints;
-	hitPoints = rhs.hitPoints;
-	attackDamage = rhs.attackDamage;
+	ClapTrap::operator=(rhs);
+	guardMode = rhs.guardMode;
 	return (*this);
 }
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "ScavTrap Destructor was called on " << name << std::endl;
+	std::cout << "ScavTrap Destructor was called on " << getName() << std::endl;
 	return;
 }
 
@@ -54,19 +52,19 @@ void ScavTrap::attack(const std::string &target)
 {
 	if (hitPoints > 0 && energyPoints > 0)
 	{
-		std::cout << name << " attacks target " << target
+		std::cout << getName() << " attacks target " << target
 				  << " causing " << attackDamage << " points of damage" << std::endl;
 		this->energyPoints--;
 		return;
 	}
 	if (hitPoints <= 0)
 	{
-		std::cout << "ScavTrap " << name << " is not able to attack "
+		std::cout << "ScavTrap " << getName() << " is not able to attack "
 				  << target << " due to no hit points left." << std::endl;
 	}
 	if (energyPoints <= 0)
 	{
-		std::cout << "ScavTrap " << name << " is not able to attack "
+		std::cout << "ScavTrap " << getName() << " is not able to attack "
 				  << target << " due to no energy points left." << std::endl;
 	}
 	return;

@@ -13,6 +13,7 @@ int main()
     scavvy.attack("Clappy");
     scavvy.beRepaired(2);
     scavvy.takeDamage(8);
+        std::cout << scavvy << std::endl;
 
     std::cout << std::endl;
 
@@ -22,6 +23,8 @@ int main()
     fraggy.beRepaired(2);
     fraggy.takeDamage(8);
     fraggy.getEnPoints();
+        std::cout << fraggy<< std::endl;
+
 
     return 0;
 }

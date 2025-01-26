@@ -32,6 +32,12 @@ int main()
     dia.whoAmI();
     std::cout << dia << std::endl;
 
+    DiamondTrap dia2(dia);
+    dia2.setNewName("Dia2");
+    dia2.guardGate();
+    dia2.whoAmI();
+    std::cout << dia2 << std::endl;
+
     // ScavTrap scavvy2 = scavvy;
     // scavvy2.setNewName("Scavvy2");
     // ScavTrap scavvy3 = dia;
