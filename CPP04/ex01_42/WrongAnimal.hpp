@@ -1,28 +1,26 @@
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
+#ifndef WRONGANIMAL_HPP
+#define WRONGANIMAL_HPP
 
 #include <iostream>
 #include <string>
-#include "Brain.hpp"
 
-class Animal
+class WrongAnimal
 {
 protected:
 	std::string type;
-	Brain &brain;
 
 public:
-	Animal();
-	Animal(Animal const &src);
-	Animal &operator=(Animal const &rhs);
-	~Animal();
+	WrongAnimal();
+	WrongAnimal(WrongAnimal const &src);
+	WrongAnimal &operator=(WrongAnimal const &rhs);
+	~WrongAnimal();
 
 	std::string getType() const;
-	virtual void makeSound() const;
+	void makeSound() const;
 };
 
 // Stream operator overload
-std::ostream &operator<<(std::ostream &o, Animal const &infile);
+std::ostream &operator<<(std::ostream &o, WrongAnimal const &infile);
 
 #define GREEN "\033[32m"
 #define RED "\033[31m"
