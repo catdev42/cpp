@@ -1,27 +1,35 @@
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
+#ifndef CAT_HPP
+#define CAT_HPP
 
+#include "Animal.hpp"
 #include <iostream>
 #include <string>
 
-class Animal
+class Cat : public Animal
 {
+private:
 protected:
-	std::string type;
-
 public:
-	Animal();
-	Animal(Animal const &src);
-	Animal &operator=(Animal const &rhs);
-	~Animal();
+	Cat();
+	Cat(Cat const &src);
+	Cat &operator=(Cat const &rhs);
+	~Cat();
 
+	// Getters & Setters
 	std::string getType() const;
-	virtual void makeSound() const;
+
+	// Member functions
+	void makeSound() const;
+	void makeSoundToStream(std::ostream &o) const;
 };
 
 // Stream operator overload
-std::ostream &operator<<(std::ostream &o, Animal const &infile);
+// std::ostream &operator<<(std::ostream &o, Cat const &infile);
 
+#endif
+
+// Uncomment if you need colors
+/*
 #define GREEN "\033[32m"
 #define RED "\033[31m"
 #define YELLOW "\033[33m"
@@ -34,5 +42,4 @@ std::ostream &operator<<(std::ostream &o, Animal const &infile);
 #define BOLD "\033[1m"
 #define ITALIC "\033[3m"
 #define UNDERLINE "\033[4m"
-
-#endif
+*/

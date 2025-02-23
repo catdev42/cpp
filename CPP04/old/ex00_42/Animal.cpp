@@ -20,11 +20,8 @@ Animal::Animal(Animal const &src)
 // Assignment operator
 Animal &Animal::operator=(Animal const &rhs)
 {
-	std::cout << "Animal assignment operator was called" << std::endl;
-	if (this != &rhs)
-	{
-		type = rhs.type;
-	}
+	std::cout << "Animal assignment operator" << std::endl;
+	type = rhs.type;
 	return (*this);
 }
 
