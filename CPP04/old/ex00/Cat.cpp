@@ -11,6 +11,7 @@ Cat::Cat() : Animal()
 	return;
 }
 
+
 // Copy constructor (calls assignment operator after creating the object)
 Cat::Cat(Cat const &src)
 {
@@ -46,12 +47,12 @@ std::string Cat::getType() const { return type; }
 // Member functions
 void Cat::makeSound() const
 {
-	std::cout << "MEOWWWWWW" << std::endl;
+	std::cout << "Undetermined Cat Sound" << std::endl;
 }
 
 void Cat::makeSoundToStream(std::ostream &o) const
 {
-	o << "MEOWWWWWW" << std::endl;
+	o << "Undetermined Cat Sound" << std::endl;
 }
 
 // Stream operator overload

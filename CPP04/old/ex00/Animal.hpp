@@ -14,7 +14,7 @@ public:
 	Animal();
 	Animal(Animal const &src);
 	Animal &operator=(Animal const &rhs);
-	virtual ~Animal();
+	~Animal();
 
 	// Getters & Setters
 	std::string getType() const;

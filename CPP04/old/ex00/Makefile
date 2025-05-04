@@ -2,7 +2,8 @@
 #* INGREDIENTS *#
 #***************#
 
-SRC = main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp 
+SRC = main.cpp Animal.cpp Cat.cpp 
+# Dog.cpp WrongAnimal.cpp WrongCat.cpp 
 OBJ = $(addprefix obj/, $(SRC:.cpp=.o))
 CC = c++
 CPPFLAGS = -Wall -Wextra -Werror -Wshadow -std=c++98 -pedantic

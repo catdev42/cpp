@@ -1,31 +1,31 @@
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
+#ifndef Dog_HPP
+#define Dog_HPP
 
+#include "Animal.hpp"
 #include <iostream>
 #include <string>
 
-class Animal
+class Dog : public Animal
 {
 private:
 protected:
-	std::string type;
-
 public:
-	Animal();
-	Animal(Animal const &src);
-	Animal &operator=(Animal const &rhs);
-	virtual ~Animal();
+	Dog();
+	Dog(Dog const &src);
+	Dog &operator=(Dog const &rhs);
+	~Dog();
 
 	// Getters & Setters
 	std::string getType() const;
 
 	// Member functions
-	virtual void makeSound() const;
-	virtual void makeSoundToStream(std::ostream &o) const;
+	void makeSound() const;
+	void makeSoundToStream(std::ostream &o) const;
 };
 
 // Stream operator overload
-std::ostream &operator<<(std::ostream &o, const Animal &infile);
+std::ostream &operator<<(std::ostream &o, Dog const &infile);
+
 #endif
 
 // Uncomment if you need colors
