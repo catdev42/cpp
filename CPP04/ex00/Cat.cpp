@@ -12,10 +12,10 @@ Cat::Cat() : Animal()
 }
 
 // Copy constructor (calls assignment operator after creating the object)
-Cat::Cat(Cat const &src)
+Cat::Cat(Cat const &src) : Animal(src)
 {
 	std::cout << "Cat" << " copy constructor was called" << std::endl;
-	*this = src;
+	type = src.type;
 	return;
 }
 

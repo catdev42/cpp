@@ -8,25 +8,28 @@ Cat::Cat() : Animal()
 {
 	type = "Cat";
 	std::cout << "Cat default constructor was called" << std::endl;
+	brain = new Brain();
 	return;
 }
 
 // Copy constructor (calls assignment operator after creating the object)
-Cat::Cat(Cat const &src)
+Cat::Cat(Cat const &src): Animal(src)
 {
 	std::cout << "Cat" << " copy constructor was called" << std::endl;
-	*this = src;
+	brain = new Brain(*src.brain); 
+    type = src.type;
 	return;
 }
 
 // Assignment operator
 Cat &Cat::operator=(Cat const &rhs)
 {
-
 	std::cout << "Cat" << " assignment operator was called" << std::endl;
 	if (this != &rhs)
 	{
 		type = rhs.type;
+		delete brain; 
+		brain = new Brain(*rhs.brain);
 	}
 	return *this;
 }
@@ -35,6 +38,7 @@ Cat &Cat::operator=(Cat const &rhs)
 Cat::~Cat()
 {
 	std::cout << "Cat" << " destructor was called" << std::endl;
+	delete brain;
 	return;
 }
 

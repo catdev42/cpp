@@ -1,5 +1,6 @@
 #include "Dog.hpp"
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 #include <iostream>
 #include <string>
@@ -12,12 +13,12 @@ Dog::Dog() : Animal()
 	return;
 }
 
-
 // Copy constructor (calls assignment operator after creating the object)
-Dog::Dog(Dog const &src)
+Dog::Dog(Dog const &src) : Animal(src)
 {
 	std::cout << "Dog" << " copy constructor was called" << std::endl;
-	*this = src;
+	brain = new Brain(*src.brain);
+	type = src.type;
 	return;
 }
 

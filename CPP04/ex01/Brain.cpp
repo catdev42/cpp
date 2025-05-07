@@ -12,7 +12,7 @@ Brain::Brain()
 Brain::Brain(Brain const &src)
 {
 	std::cout << "Brain copy constructor was called" << std::endl;
-	*this = src;
+	std::copy(src.ideas, src.ideas + MAX, ideas);
 	return;
 }
 
