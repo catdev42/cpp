@@ -2,8 +2,7 @@
 #* INGREDIENTS *#
 #***************#
 
-SRC = main.cpp Animal.cpp Cat.cpp 
-# Dog.cpp WrongAnimal.cpp WrongCat.cpp 
+SRC = main.cpp Brain.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp 
 OBJ = $(addprefix obj/, $(SRC:.cpp=.o))
 CC = c++
 CPPFLAGS = -Wall -Wextra -Werror -Wshadow -std=c++98 -pedantic
@@ -23,6 +22,10 @@ obj/%.o: %.cpp
 $(NAME): $(OBJ)
 	$(CC) $(CPPFLAGS) $(OBJ) -o $(NAME)
 
+check: $(OBJ)
+	$(CC) $(CPPFLAGS) -g $(OBJ) -o $(NAME)
+	valgrind ./$(NAME)
+
 clean:
 	rm -f $(OBJ)
 
@@ -32,7 +35,7 @@ fclean: clean
 
 re: fclean $(NAME)
 
-.PHONY: all clean fclean re
+.PHONY: all check clean fclean re
 
 #**********#
 #* Colors *#

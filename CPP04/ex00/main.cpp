@@ -7,8 +7,6 @@
 #include <iostream>
 #include <string>
 
-
-
 int main()
 {
 	const Animal *animal = new Animal();
@@ -24,7 +22,7 @@ int main()
 	std::cout << "class Animal kitty says ";
 	kitty->makeSound(); // will output the cat sound!
 
-	const Cat *kittyCat =  new Cat();
+	const Cat *kittyCat = new Cat();
 	std::cout << "class Cat kittyCat says ";
 	kittyCat->makeSound();
 
@@ -36,7 +34,6 @@ int main()
 	const WrongAnimal *wrongmeta = new WrongAnimal();
 	const WrongAnimal *wrongi = new WrongCat();
 
-
 	std::cout << wrongi->getType() << " " << std::endl;
 	wrongi->makeSound(); // will NOT output the cat sound!
 
@@ -45,6 +42,11 @@ int main()
 
 	const WrongCat *catAsCat = new WrongCat();
 
-	std::cout << catAsCat->getType() << " " << std::endl;
+	std::cout << catAsCat->getType() << " USED AS CAT CLASS";
 	catAsCat->makeSound();
+	std::cout << std::endl;
+
+	delete wrongmeta;
+	delete wrongi;
+	delete catAsCat;
 }

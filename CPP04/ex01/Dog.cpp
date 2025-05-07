@@ -10,6 +10,7 @@ Dog::Dog() : Animal()
 {
 	type = "Dog";
 	std::cout << "Dog default constructor was called" << std::endl;
+	brain = new Brain();
 	return;
 }
 
@@ -25,11 +26,12 @@ Dog::Dog(Dog const &src) : Animal(src)
 // Assignment operator
 Dog &Dog::operator=(Dog const &rhs)
 {
-
 	std::cout << "Dog" << " assignment operator was called" << std::endl;
 	if (this != &rhs)
 	{
 		type = rhs.type;
+		delete brain;
+		brain = new Brain(*rhs.brain);
 	}
 	return *this;
 }
@@ -38,6 +40,7 @@ Dog &Dog::operator=(Dog const &rhs)
 Dog::~Dog()
 {
 	std::cout << "Dog" << " destructor was called" << std::endl;
+	delete brain;
 	return;
 }
 
