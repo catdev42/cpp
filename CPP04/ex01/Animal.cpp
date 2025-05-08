@@ -44,12 +44,12 @@ std::string Animal::getType() const { return type; }
 // Member functions
 void Animal::makeSound() const
 {
-	std::cout << "Undetermined Animal Sound" << std::endl;
+	std::cout << "No Sound" << std::endl;
 }
 
 void Animal::makeSoundToStream(std::ostream &o) const
 {
-	o << "Undetermined Animal Sound" << std::endl;
+	o << "No Sound" << std::endl;
 }
 
 // Stream operator overload

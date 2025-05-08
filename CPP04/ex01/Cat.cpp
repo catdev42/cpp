@@ -9,15 +9,16 @@ Cat::Cat() : Animal()
 	type = "Cat";
 	std::cout << "Cat default constructor was called" << std::endl;
 	brain = new Brain();
+	giveIdeas(defaultIdeas);
 	return;
 }
 
 // Copy constructor (calls assignment operator after creating the object)
-Cat::Cat(Cat const &src): Animal(src)
+Cat::Cat(Cat const &src) : Animal(src)
 {
 	std::cout << "Cat" << " copy constructor was called" << std::endl;
-	brain = new Brain(*src.brain); 
-    type = src.type;
+	brain = new Brain(*src.brain);
+	type = src.type;
 	return;
 }
 
@@ -28,7 +29,7 @@ Cat &Cat::operator=(Cat const &rhs)
 	if (this != &rhs)
 	{
 		type = rhs.type;
-		delete brain; 
+		delete brain;
 		brain = new Brain(*rhs.brain);
 	}
 	return *this;
@@ -56,6 +57,11 @@ void Cat::makeSound() const
 void Cat::makeSoundToStream(std::ostream &o) const
 {
 	o << "MEOWWWWWW" << std::endl;
+}
+
+void Cat::giveIdeas(const std::string &animalIdeas)
+{
+	brain->setIdeas(&animalIdeas);
 }
 
 // Stream operator overload

@@ -20,10 +20,9 @@ public:
 	// Getters & Setters
 
 	// Member functions
-	void copy_into_self(const Brain& other)
-	{
-		std::copy(other.ideas, other.ideas + MAX, ideas);
-	}
+	void copy_into_self(const Brain &other);
+	void setIdeas(const std::string *animalIdeas);
+	std::string getIdeas() const;
 };
 
 // Stream operator overload

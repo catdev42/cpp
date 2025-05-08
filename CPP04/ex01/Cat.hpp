@@ -11,6 +11,7 @@ class Cat : public Animal
 {
 private:
 	Brain *brain;
+	const std::string defaultIdeas = "meowmeow   meowmewmew mewmewmewmew";
 	
 public:
 	Cat();
@@ -24,6 +25,9 @@ public:
 	// Member functions
 	void makeSound() const;
 	void makeSoundToStream(std::ostream &o) const;
+
+	void giveIdeas(const std::string &animalIdeas);
+
 };
 
 // Stream operator overload

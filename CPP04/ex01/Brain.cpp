@@ -32,6 +32,19 @@ Brain::~Brain()
 	return;
 }
 
+void Brain::copy_into_self(const Brain &other)
+{
+	std::copy(other.ideas, other.ideas + MAX, ideas);
+}
+
+void Brain::setIdeas(const std::string *animalIdeas)
+{
+	std::copy(animalIdeas, animalIdeas + animalIdeas->length(), ideas);
+}
+std::string Brain::getIdeas() const{
+	return ideas;
+}
+
 // Stream operator overload
 std::ostream &operator<<(std::ostream &o, Brain const &infile)
 {

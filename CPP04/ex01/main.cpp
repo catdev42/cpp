@@ -20,9 +20,14 @@ int main()
 	static const int max = 100;
 	Animal *animals[max];
 	for (int i = 0; i < max / 2; i++)
+	{
 		animals[i] = new Cat();
+	}
 	for (int i = max / 2; i < max; i++)
 		animals[i] = new Dog();
+
+	animals[10]->makeSound();
+	animals[70]->makeSound();
 
 	for (int i = 0; i < max; i++)
 		delete animals[i];
