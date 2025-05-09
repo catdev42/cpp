@@ -21,7 +21,7 @@ public:
 
 	// Member functions
 	virtual void makeSound() const;
-	virtual void makeSoundToStream(std::ostream &o) const;
+	virtual void makeSound(std::ostream &o) const;
 };
 
 // Stream operator overload

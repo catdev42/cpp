@@ -20,7 +20,7 @@ public:
 
 	// Member functions
 	void makeSound() const;
-	void makeSoundToStream(std::ostream &o) const;
+	void makeSound(std::ostream &o) const;
 };
 
 // Stream operator overload

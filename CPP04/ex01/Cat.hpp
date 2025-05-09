@@ -6,13 +6,12 @@
 #include <iostream>
 #include <string>
 
-
 class Cat : public Animal
 {
 private:
 	Brain *brain;
-	const std::string defaultIdeas = "meowmeow   meowmewmew mewmewmewmew";
-	
+	static const std::string defaultIdeas;
+
 public:
 	Cat();
 	Cat(Cat const &src);
@@ -24,10 +23,12 @@ public:
 
 	// Member functions
 	void makeSound() const;
-	void makeSoundToStream(std::ostream &o) const;
+	void makeSound(std::ostream &o) const;
 
-	void giveIdeas(const std::string &animalIdeas);
+	void giveIdea(const std::string &animalIdeas);
 
+	void printIdeas() const;
+	void printIdeas(std::ostream &o) const;
 };
 
 // Stream operator overload

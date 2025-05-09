@@ -50,7 +50,7 @@ void Dog::makeSound() const
 	std::cout << "Woooooooof" << std::endl;
 }
 
-void Dog::makeSoundToStream(std::ostream &o) const
+void Dog::makeSound(std::ostream &o) const
 {
 	o << "Woooooooof" << std::endl;
 }
@@ -60,6 +60,6 @@ std::ostream &operator<<(std::ostream &o, Dog const &infile)
 {
 	o << "Type: " << infile.getType()
 	  << "Sound : ";
-	infile.makeSoundToStream(o);
+	infile.makeSound(o);
 	return o;
 }

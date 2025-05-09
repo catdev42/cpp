@@ -17,12 +17,16 @@ public:
 	Brain &operator=(Brain const &rhs);
 	~Brain();
 
+	void copy_into_self(const Brain &other);
 	// Getters & Setters
+	void setOneIdea(const std::string &animalIdea);
+	void replaceOneIdea(const std::string &idea, size_t index);
+	const std::string *getIdeas() const;
+	// const std::string &getOneIdea(const std::string &idea, size_t index) const;
 
 	// Member functions
-	void copy_into_self(const Brain &other);
-	void setIdeas(const std::string *animalIdeas);
-	std::string getIdeas() const;
+	void printIdeas() const;
+	void printIdeas(std::ostream &o) const;
 };
 
 // Stream operator overload

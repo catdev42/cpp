@@ -20,7 +20,7 @@ public:
 	// Getters & Setters
 
 	// Member functions
-	void copy_into_self(const Brain& other)
+	void copy_into_self(const Brain &other)
 	{
 		std::copy(other.ideas, other.ideas + MAX, ideas);
 	}

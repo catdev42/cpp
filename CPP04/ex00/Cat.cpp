@@ -49,7 +49,7 @@ void Cat::makeSound() const
 	std::cout << "MEOWWWWWW" << std::endl;
 }
 
-void Cat::makeSoundToStream(std::ostream &o) const
+void Cat::makeSound(std::ostream &o) const
 {
 	o << "MEOWWWWWW" << std::endl;
 }
@@ -59,6 +59,6 @@ std::ostream &operator<<(std::ostream &o, Cat const &infile)
 {
 	o << "Type: " << infile.getType()
 	  << "Sound : ";
-	infile.makeSoundToStream(o);
+	infile.makeSound(o);
 	return o;
 }

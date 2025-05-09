@@ -8,7 +8,6 @@ Animal::Animal() : type("Animal")
 	return;
 }
 
-
 // Copy constructor (calls assignment operator after creating the object)
 Animal::Animal(Animal const &src)
 {
@@ -47,7 +46,7 @@ void Animal::makeSound() const
 	std::cout << "No Sound" << std::endl;
 }
 
-void Animal::makeSoundToStream(std::ostream &o) const
+void Animal::makeSound(std::ostream &o) const
 {
 	o << "No Sound" << std::endl;
 }
@@ -57,6 +56,6 @@ std::ostream &operator<<(std::ostream &o, const Animal &infile)
 {
 	o << "Type: " << infile.getType()
 	  << "Sound : ";
-	infile.makeSoundToStream(o);
+	infile.makeSound(o);
 	return o;
 }

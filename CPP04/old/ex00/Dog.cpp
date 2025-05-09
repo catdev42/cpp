@@ -12,7 +12,6 @@ Dog::Dog() : Animal()
 	return;
 }
 
-
 // Copy constructor (calls assignment operator after creating the object)
 Dog::Dog(Dog const &src)
 {
@@ -51,7 +50,7 @@ void Dog::makeSound() const
 	std::cout << "Undetermined Dog Sound" << std::endl;
 }
 
-void Dog::makeSoundToStream(std::ostream &o) const
+void Dog::makeSound(std::ostream &o) const
 {
 	o << "Undetermined Dog Sound" << std::endl;
 }
@@ -61,6 +60,6 @@ std::ostream &operator<<(std::ostream &o, Dog const &infile)
 {
 	o << "Type: " << infile.getType()
 	  << "Sound : ";
-	infile.makeSoundToStream(o);
+	infile.makeSound(o);
 	return o;
 }

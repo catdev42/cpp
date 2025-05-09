@@ -12,7 +12,6 @@ private:
 	Brain *brain;
 
 protected:
-
 public:
 	Dog();
 	Dog(Dog const &src);
@@ -24,7 +23,12 @@ public:
 
 	// Member functions
 	void makeSound() const;
-	void makeSoundToStream(std::ostream &o) const;
+	void makeSound(std::ostream &o) const;
+
+	void giveIdea(const std::string &animalIdeas);
+	
+	void printIdeas() const;
+	void printIdeas(std::ostream &o) const;
 };
 
 // Stream operator overload

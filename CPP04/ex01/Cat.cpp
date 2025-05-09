@@ -3,13 +3,15 @@
 #include <iostream>
 #include <string>
 
+const std::string Cat::defaultIdeas = "Meow! I want food. I hate water. I need a nap."; 
+
 // Default constructor
 Cat::Cat() : Animal()
 {
 	type = "Cat";
 	std::cout << "Cat default constructor was called" << std::endl;
 	brain = new Brain();
-	giveIdeas(defaultIdeas);
+	giveIdea(defaultIdeas);
 	return;
 }
 
@@ -54,14 +56,23 @@ void Cat::makeSound() const
 	std::cout << "MEOWWWWWW" << std::endl;
 }
 
-void Cat::makeSoundToStream(std::ostream &o) const
+void Cat::makeSound(std::ostream &o) const
 {
-	o << "MEOWWWWWW" << std::endl;
+	// o << "MEOWWWWWW" << std::endl;
+	printIdeas(o);
 }
 
-void Cat::giveIdeas(const std::string &animalIdeas)
+void Cat::giveIdea(const std::string &animalIdeas)
 {
-	brain->setIdeas(&animalIdeas);
+	brain->setOneIdea(animalIdeas);
+}
+void Cat::printIdeas() const
+{
+	brain->printIdeas();
+}
+void Cat::printIdeas(std::ostream &o) const
+{
+	brain->printIdeas(o);
 }
 
 // Stream operator overload
@@ -69,6 +80,6 @@ std::ostream &operator<<(std::ostream &o, Cat const &infile)
 {
 	o << "Type: " << infile.getType()
 	  << "Sound : ";
-	infile.makeSoundToStream(o);
+	infile.makeSound(o);
 	return o;
 }

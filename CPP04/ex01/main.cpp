@@ -14,6 +14,11 @@ be Dog objects and the other half will be Cat objects. At the end of your progra
 execution, loop over this array and delete every Animal. You must delete directly dogs
 and cats as Animals. The appropriate destructors must be called in the expected order.
 */
+#define GREEN "\033[32m"
+#define RED "\033[31m"
+#define YELLOW "\033[33m"
+#define BLUE "\033[34m"
+#define RESET "\033[0m"
 
 int main()
 {
@@ -22,6 +27,18 @@ int main()
 	for (int i = 0; i < max / 2; i++)
 	{
 		animals[i] = new Cat();
+		if (i == 1)
+		{
+			dynamic_cast<Cat *>(animals[1])->giveIdea("Meow Mew Mew");
+		}
+		if (i == 3)
+		{
+			delete animals[3];
+			animals[3] = new Cat(*(dynamic_cast<Cat*>(animals[1])));
+			std::cout << GREEN << "Test Deep Copy:" << std::endl;
+			dynamic_cast<Cat *>(animals[3])->printIdeas();
+			std::cout << RESET ;
+		}
 	}
 	for (int i = max / 2; i < max; i++)
 		animals[i] = new Dog();
