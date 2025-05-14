@@ -7,6 +7,7 @@
 class AMateria
 {
 private:
+	// ex: int _foo
 protected:
 	std::string const type;
 
