@@ -14,6 +14,4 @@ public:
 	virtual void use(int idx, ICharacter &target) = 0;
 };
 
-std::ostream &operator<<(std::ostream &o, ICharacter const &infile);
-
 #endif

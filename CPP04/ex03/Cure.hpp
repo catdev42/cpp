@@ -5,17 +5,16 @@
 # include "AMateria.hpp"
 #include "ICharacter.hpp"
 
-class Cure {
+class Cure : public AMateria {
 private:
 	
 public:
 	Cure();
-	Cure( const int num);
 	Cure( Cure const & src);
 	Cure &	operator=( Cure const & rhs);
 	virtual ~Cure();
 
-	virtual AMateria *clone() const = 0;
+	virtual AMateria *clone() const;
 	virtual void use(ICharacter &target);
 };
 

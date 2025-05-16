@@ -3,19 +3,24 @@
 
 #include <iostream>
 #include "IMateriaSource.hpp"
+
 class MateriaSource : public IMateriaSource
 {
 private:
-	AMateria *mater[4];
+	enum {
+		MAX = 4
+	};
+	AMateria *mater[MAX];
+	std::string types[MAX];
 
 public:
 	MateriaSource();
-	MateriaSource(const int num);
+	MateriaSource(AMateria *item);
 	MateriaSource(MateriaSource const &src);
 	MateriaSource &operator=(MateriaSource const &rhs);
 	virtual ~MateriaSource();
 
-	virtual void learnMateria(AMateria *);
+	virtual void learnMateria(AMateria *item);
 	virtual AMateria *createMateria(std::string const &type);
 };
 

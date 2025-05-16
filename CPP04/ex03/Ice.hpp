@@ -5,10 +5,9 @@
 #include "AMateria.hpp"
 #include "ICharacter.hpp"
 
-class Ice
+class Ice : public AMateria
 {
 private:
-
 public:
 	Ice();
 	Ice(const int num);
@@ -16,7 +15,7 @@ public:
 	Ice &operator=(Ice const &rhs);
 	virtual ~Ice();
 
-	virtual AMateria *clone() const = 0;
+	virtual AMateria *clone() const;
 	virtual void use(ICharacter &target);
 };
 

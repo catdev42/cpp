@@ -7,12 +7,13 @@
 class AMateria
 {
 private:
+	AMateria(); // can't be used because its virtual
+
 protected:
 	std::string const type;
 
 public:
-	AMateria();
-	AMateria(std::string const &type);
+	AMateria(std::string const &type); // parametrized
 	AMateria(AMateria const &src);
 	AMateria &operator=(AMateria const &rhs);
 	virtual ~AMateria();

@@ -1,25 +1,55 @@
-#ifndef ICE_HPP
-#define ICE_HPP
-
+#include "Ice.hpp"
 #include <iostream>
-#include "AMateria.hpp"
-#include "ICharacter.hpp"
 
-class Ice
+Ice::Ice() : AMateria("ice")
 {
-private:
+    std::cout << "Ice default constructor" << std::endl;
+    return;
+}
 
-public:
-	Ice();
-	Ice(const int num);
-	Ice(Ice const &src);
-	Ice &operator=(Ice const &rhs);
-	virtual ~Ice();
+Ice::Ice(Ice const &src) : AMateria("ice")
+{
+    std::cout << "Ice copy constructor" << std::endl;
+    /*TODO*/;
+    return;
+}
 
-	virtual AMateria *clone() const = 0;
-	virtual void use(ICharacter &target);
-};
+Ice &Ice::operator=(Ice const &rhs)
+{
+    std::cout << "Ice copy assignment operator" << std::endl;
+    if (this != &rhs)
+    {
+        /*TODO*/;
+    }
+    return *this;
+}
 
-std::ostream &operator<<(std::ostream &o, Ice const &infile);
+Ice::~Ice()
+{
+    std::cout << "Ice destructor" << std::endl;
+    return;
+}
 
-#endif
+AMateria *Ice::clone() const
+{
+    return new Ice();
+}
+
+void Ice::use(ICharacter &target)
+{
+    std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
+}
+
+/********************************************/
+/********************************************/
+/******STREAM******/
+
+std::ostream &operator<<(std::ostream &o, const Ice &infile)
+{
+    o << std::endl;
+    return o;
+}
+
+/********************************************/
+/********************************************/
+/******PRIVATE******/

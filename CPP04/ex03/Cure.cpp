@@ -1,24 +1,52 @@
-#ifndef CURE_HPP
-#define CURE_HPP
+#include "Cure.hpp"
+#include <iostream>
 
-# include <iostream>
-# include "AMateria.hpp"
-#include "ICharacter.hpp"
+Cure::Cure() : AMateria("cure")
+{
+    std::cout << "Cure default constructor" << std::endl;
+    return;
+}
 
-class Cure {
-private:
-	
-public:
-	Cure();
-	Cure( const int num);
-	Cure( Cure const & src);
-	Cure &	operator=( Cure const & rhs);
-	virtual ~Cure();
+Cure::Cure(Cure const &src) : AMateria("cure")
+{
+    std::cout << "Cure copy constructor" << std::endl;
+    return;
+}
 
-	virtual AMateria *clone() const = 0;
-	virtual void use(ICharacter &target);
-};
+Cure &Cure::operator=(Cure const &rhs)
+{
+    std::cout << "Cure copy assignment operator" << std::endl;
+    if (this != &rhs)
+    {
+        this->AMateria::operator=(rhs);
+    }
+    return *this;
+}
 
-std::ostream &operator<<(std::ostream &o, Cure const &infile);
+Cure::~Cure()
+{
+    std::cout << "Cure destructor" << std::endl;
+    return;
+}
 
-#endif
+AMateria *Cure::clone() const {
+    return new Cure();
+}
+
+void Cure::use(ICharacter &target) {
+    std::cout<< "* heals "<< target.getName() << "'s wounds *" <<std::endl;
+}
+
+/********************************************/
+/********************************************/
+/******STREAM******/
+
+std::ostream &operator<<(std::ostream &o, const Cure &infile)
+{
+    o << std::endl;
+    return o;
+}
+
+/********************************************/
+/********************************************/
+/******PRIVATE******/
