@@ -2,23 +2,10 @@
 #include "AMateria.hpp"
 #include <iostream>
 
-/* Default constructor */
-Floor::Floor() : capacity(DEFAULT_CAPACITY), size(DEFAULT_SIZE)
+Floor &Floor::getInstance()
 {
-    std::cout << "Floor default constructor" << std::endl;
-    items = new AMateria *[DEFAULT_CAPACITY];
-    for (int i = 0; i < capacity; i++)
-        items[i] = NULL;
-    return;
-}
-
-/* Parametrized constructor */
-Floor::Floor(AMateria *src) : capacity(DEFAULT_CAPACITY), size(DEFAULT_SIZE)
-{
-    std::cout << "Floor parametrized constructor" << std::endl;
-    items = new AMateria *[DEFAULT_CAPACITY];
-    initNullItems(items, capacity);
-    return;
+    static Floor instance; // Meyers' Singleton: created on first call, destroyed at program exit
+    return instance;
 }
 
 /* Destructor */
@@ -31,6 +18,10 @@ Floor::~Floor()
     delete items;
     return;
 }
+
+/********************************************/
+/********************************************/
+/******MEMBER FUNCTIONS******/
 
 void Floor::addToFloor(AMateria *item)
 {
@@ -55,14 +46,18 @@ void Floor::addToFloor(AMateria *item)
 }
 
 /* Getters */
-const AMateria **Floor::getItems() const
+
+int Floor::getSize() const
 {
-    return items;
+    return size;
 }
 
 const std::string &Floor::getTypeAtIndex(int index) const
 {
-    return items[index]->getType();
+    if (index > 0 && index < size)
+        return items[index]->getType();
+    static const std::string error_str = "Error: not a valid index";
+    return error_str;
 }
 
 /* Stream operator overload */
@@ -70,9 +65,8 @@ const std::string &Floor::getTypeAtIndex(int index) const
 std::ostream &operator<<(std::ostream &o, const Floor &infile)
 {
     const int size = infile.getSize();
-    const AMateria **items = infile.getItems();
     for (int i = 0; i < size; i++)
-        o << items[i] << ", ";
+        o << infile.getTypeAtIndex(i) << ", ";
     o << "." << std::endl;
     return o;
 }
@@ -81,19 +75,46 @@ std::ostream &operator<<(std::ostream &o, const Floor &infile)
 /***************************************/
 /* PRIVATE */
 
+/* Default constructor */
+Floor::Floor() : capacity(DEFAULT_CAPACITY), size(DEFAULT_SIZE)
+{
+    std::cout << "Floor default constructor" << std::endl;
+    items = new AMateria *[DEFAULT_CAPACITY];
+    for (int i = 0; i < capacity; i++)
+        items[i] = NULL;
+    return;
+}
+
+/* Parametrized constructor */
+Floor::Floor(AMateria *src) : capacity(DEFAULT_CAPACITY), size(DEFAULT_SIZE)
+{
+    std::cout << "Floor parametrized constructor" << std::endl;
+    items = new AMateria *[DEFAULT_CAPACITY];
+    initNullItems(items, capacity);
+    addToFloor(src);
+    return;
+}
+
 /* Copy constructor */
 Floor::Floor(Floor const &src)
 {
-    std::cout << "Floor copy constructor: Impossible" << std::endl;
+    std::cout << "Floor copy constructor: Impossible"
+              << src.size << " items are on the floor and there is only ONE floor"
+              << std::endl;
+
     return;
 }
 
 /* Assignment operator */
 Floor &Floor::operator=(Floor const &rhs)
 {
-    std::cout << "Floor assignment operator : Impossible" << std::endl;
+    std::cout << "Floor assignment operator : Impossible"
+              << rhs.size << " items are on the floor and there is only ONE floor"
+              << std::endl;
     return *this;
 }
+
+// Internal
 
 /* Private, internal copy function */
 void Floor::copyItems(AMateria **newItems, int cap)

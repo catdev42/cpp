@@ -7,11 +7,11 @@
 class MateriaSource : public IMateriaSource
 {
 private:
-	enum {
+	enum
+	{
 		MAX = 4
 	};
-	AMateria *mater[MAX];
-	std::string types[MAX];
+	AMateria *items[MAX];
 
 public:
 	MateriaSource();
@@ -24,6 +24,6 @@ public:
 	virtual AMateria *createMateria(std::string const &type);
 };
 
-std::ostream &operator<<(std::ostream &o, MateriaSource const &infile);
+// std::ostream &operator<<(std::ostream &o, MateriaSource const &infile);
 
 #endif

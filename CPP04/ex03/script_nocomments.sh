@@ -52,7 +52,11 @@ ${CLASS_NAME}::~${CLASS_NAME}()
 
 /********************************************/
 /********************************************/
-/******STREAM******/
+/****** MEMBER FUNCTIONS ******/
+
+/********************************************/
+/********************************************/
+/****** STREAM ******/
 
 std::ostream &operator<<(std::ostream &o, const ${CLASS_NAME} &infile)
 {
@@ -62,7 +66,7 @@ std::ostream &operator<<(std::ostream &o, const ${CLASS_NAME} &infile)
 
 /********************************************/
 /********************************************/
-/******PRIVATE******/
+/****** PRIVATE ******/
 EOL
 
 echo "Generated ${CLASS_NAME}.cpp with template code"

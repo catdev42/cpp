@@ -2,7 +2,7 @@
 #define AMATERIA_HPP
 
 #include <iostream>
-#include "ICharacter.hpp"
+class ICharacter; // FORWARD DECLARATION (INSTEAD OF INCLUDE)
 
 class AMateria
 {
@@ -10,7 +10,7 @@ private:
 	AMateria(); // can't be used because its virtual
 
 protected:
-	std::string const type;
+	std::string const materType;
 
 public:
 	AMateria(std::string const &type); // parametrized

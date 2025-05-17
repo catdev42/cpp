@@ -12,13 +12,11 @@
 class Floor
 {
 public:
-	Floor();
-	Floor(AMateria *src);
+	static Floor& getInstance();
 	~Floor();
 
 	void addToFloor(AMateria *item);
-	const int getSize() const;
-	const AMateria **getItems() const;
+	int getSize() const;
 	const std::string &getTypeAtIndex(int index) const;
 
 private:
@@ -28,12 +26,15 @@ private:
 	enum
 	{
 		DEFAULT_SIZE = 0,
-		DEFAULT_CAPACITY = 10,
+		DEFAULT_CAPACITY = 10
 	};
+	Floor();
+	Floor(AMateria *src);
 	Floor(Floor const &src);
 	Floor &operator=(Floor const &rhs);
-	void Floor::copyItems(AMateria **newItems, int cap);
-	void Floor::initNullItems(AMateria **newItems, int cap);
+
+	void copyItems(AMateria **newItems, int cap);
+	void initNullItems(AMateria **newItems, int cap);
 };
 
 std::ostream &operator<<(std::ostream &o, Floor const &infile);
