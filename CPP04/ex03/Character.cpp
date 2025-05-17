@@ -10,7 +10,7 @@ Character::Character() : name("no name")
         this->items[i] = NULL;
     return;
 }
-Character::Character(std::string &newChar) : name(newChar)
+Character::Character(std::string const &newChar) : name(newChar)
 {
     std::cout << "Character parametrized (name) constructor" << std::endl;
     for (int i = 0; i < MAX; i++)
@@ -99,7 +99,7 @@ void Character::use(int idx, ICharacter &target)
 /********************************************/
 /****** STREAM ******/
 
-std::ostream &operator<<(std::ostream &o, const Character &infile)
+std::ostream &operator<<(std::ostream &o, const ICharacter &infile)
 {
     o << "Hello, my name is " << infile.getName() << std::endl;
     return o;

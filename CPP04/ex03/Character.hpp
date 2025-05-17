@@ -9,7 +9,7 @@ class Character : public ICharacter
 {
 public:
 	Character();
-	Character(std::string &name);
+	Character(std::string const &name);
 	Character(Character const &src);
 	Character &operator=(Character const &rhs);
 	virtual ~Character();
@@ -28,6 +28,6 @@ private:
 	std::string name;
 };
 
-std::ostream &operator<<(std::ostream &o, const Character &infile);
+std::ostream &operator<<(std::ostream &o, const ICharacter &infile);
 
 #endif
